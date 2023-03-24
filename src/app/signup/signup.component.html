@@ -1,0 +1,27 @@
+<form class="form m-5 d-flex flex-column" (ngSubmit)="onSubmit()" [formGroup]="form">
+    <input-error [input]="form"></input-error> 
+    
+    <input type="text" class="form-control" placeholder="name" formControlName="name">
+    <input-error [input]="name"></input-error> 
+    <br>
+    <input type="text" class="form-control" placeholder="Address" formControlName="address">
+    <input-error [input]="address"></input-error> 
+    <br>
+    <input type="text" class="form-control" placeholder="Email" formControlName="email">
+    <input-error [input]="email"></input-error> 
+    <br>
+    <input type="text" class="form-control" placeholder="Password" formControlName="password">
+    <input-error [input]="password"></input-error>
+    <br>
+    <button class="btn btn-primary" 
+        [disabled]="name?.invalid || password?.invalid || email?.invalid || address?.invalid" 
+        type="submit"
+    >Create Account</button>
+    <br>
+    <div class="d-flex justify-content-center">
+        Already Have Account?&nbsp;<a routerLink="/signin">Login</a>
+    </div>
+</form> 
+
+
+<!-- implement signup then implement signin & signup errors  -->

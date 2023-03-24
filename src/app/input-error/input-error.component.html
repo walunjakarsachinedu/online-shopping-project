@@ -1,0 +1,6 @@
+<div 
+  *ngIf="input?.touched && input?.errors?.['message'] != null"
+  class="alert alert-danger"
+>
+  {{input?.errors?.['message']}}
+</div>
