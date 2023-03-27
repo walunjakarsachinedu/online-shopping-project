@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
 import { Router } from '@angular/router';
+import { AuthService } from '../common/services/auth.service';
 import { CustomerService } from '../common/services/customer.service';
 import { MyValidators } from '../validators';
 
@@ -10,7 +11,7 @@ import { MyValidators } from '../validators';
   styleUrls: ['./signin.component.css']
 })
 export class SigninComponent {
-  constructor(private customers: CustomerService, private router: Router) { }
+  constructor(private customers: CustomerService, private router: Router, private authService: AuthService) { }
 
   public form = new FormGroup({
     email: new FormControl('', MyValidators.email),
@@ -26,7 +27,9 @@ export class SigninComponent {
       .subscribe(customer => {
         if(customer.length == 0 || customer[0].password != this.password?.value) 
           this.form.setErrors({auth: true});
-        else this.router.navigate(["/products"])
+        else {
+          this.authService.login(this.form.value);
+        }
       });
   }
 

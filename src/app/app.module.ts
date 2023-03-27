@@ -12,6 +12,10 @@ import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { ProductService } from './common/services/product.service';
 import { SigninComponent } from './signin/signin.component';
 import { ProductsComponent } from './products/products.component';
+import { ProductDetailComponent } from './product-detail/product-detail.component';
+import { AuthService } from './common/services/auth.service';
+import { AuthGuard } from './common/services/auth-guard.service';
+import { TestComponent } from './test/test.component';
 
 @NgModule({
   declarations: [
@@ -20,6 +24,8 @@ import { ProductsComponent } from './products/products.component';
     SignupComponent,
     SigninComponent,
     ProductsComponent,
+    ProductDetailComponent,
+    TestComponent,
   ],
   imports: [
     BrowserModule,
@@ -27,13 +33,15 @@ import { ProductsComponent } from './products/products.component';
     ReactiveFormsModule,
     AppRoutingModule,
     RouterModule.forRoot([
-      {path: '', component: SignupComponent},
+      {path: '', component: SigninComponent},
       {path: 'signup', component: SignupComponent},
       {path: 'signin', component: SigninComponent},
-      {path: 'products', component: ProductsComponent},
+      {path: 'products', component: ProductsComponent, canActivate: [AuthGuard]},
+      {path: 'product-detail', component: ProductDetailComponent},
+      {path: 'test', component: TestComponent, canActivate: [AuthGuard]},
     ])
   ],
-  providers: [CustomerService, ProductService],
+  providers: [CustomerService, ProductService, AuthService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
