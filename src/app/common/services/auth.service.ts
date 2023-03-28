@@ -1,21 +1,34 @@
+import { HttpClient } from "@angular/common/http";
 import { Injectable } from "@angular/core";
 import { ActivatedRoute, Router } from "@angular/router";
 import { JwtHelperService } from "@auth0/angular-jwt";
+import { catchError, map, Observable, of } from "rxjs";
+import { Customer } from "../models/customer";
+import { CustomerService } from "./customer.service";
+import { DataService } from "./data.service";
 
 @Injectable({
   providedIn: "root"
 })
-export class AuthService {
-  constructor(private router: Router, private activatedRoute: ActivatedRoute) {}
+export class AuthService{
 
-  login(credential: {email?: string | null, password?: string | null}) {
-    localStorage.setItem("token", "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6InNhY2hpbiB3YWx1bmpha2FyIiwiaWF0IjoxNTE2MjM5MDIyfQ.KWM_qHWyFlk3rW4glh-r7AokUnZJvmbHnPvYDFsbYBs")
-    this.activatedRoute.queryParamMap.subscribe(
-      route => {
-        console.log("__return route:", route.get("returnUrl"));
-        this.router.navigate([route.get("returnUrl") || "/products"]);
-      }
-    );
+  constructor(private router: Router, private activatedRoute: ActivatedRoute, private customerService: CustomerService, private http: HttpClient) {}
+
+  login(credential: {email?: string | null, password?: string | null}): Observable<boolean> {
+    let dataservice = new DataService("http://localhost:3000/login", this.http);
+    return dataservice.post(credential)
+    .pipe(map((token) => {
+      localStorage.setItem("token", token.token);
+      return true;
+    })).pipe(catchError((error) => of(false)));
+  }
+
+  createUser(customer: Customer) {
+    let dataservice = new DataService("http://localhost:3000/customers", this.http);
+    return dataservice.post(customer)
+    .pipe(map((customer) => {
+      return customer != null;
+    })).pipe(catchError((error) => of(false)));
   }
 
   logout() {

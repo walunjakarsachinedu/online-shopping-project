@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { AuthService } from '../common/services/auth.service';
 import { CustomerService } from '../common/services/customer.service';
 import { MyValidators } from '../validators';
@@ -11,7 +11,12 @@ import { MyValidators } from '../validators';
   styleUrls: ['./signin.component.css']
 })
 export class SigninComponent {
-  constructor(private customers: CustomerService, private router: Router, private authService: AuthService) { }
+  constructor(
+    private customers: CustomerService, 
+    private router: Router, 
+    private authService: AuthService, 
+    private activeRoute: ActivatedRoute
+  ) { }
 
   public form = new FormGroup({
     email: new FormControl('', MyValidators.email),
@@ -23,14 +28,12 @@ export class SigninComponent {
   get email() { return this.form.get("email") }
 
   signin() {
-    this.customers.getCustomerByEmail(this.email?.value ?? '')
-      .subscribe(customer => {
-        if(customer.length == 0 || customer[0].password != this.password?.value) 
-          this.form.setErrors({auth: true});
-        else {
-          this.authService.login(this.form.value);
-        }
-      });
+    this.authService.login(this.form.value).subscribe(islogin => {
+      if(!islogin) return this.form.setErrors({auth: true});
+      let returnUrl = this.activeRoute.snapshot.queryParamMap.get('returnUrl');
+      this.router.navigate([returnUrl || '/products']);
+    });
   }
 
 }
+ 

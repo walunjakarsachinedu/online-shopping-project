@@ -13,6 +13,6 @@ export class CustomerService extends DataService {
   }
 
   public getCustomerByEmail(email: string): Observable<Customer[]> {
-    return this.http.get(this.url + "?email=" + email).pipe(map((v) => (v as Customer[]))); 
+    return this.http.get(this.url + "?email=" + email).pipe(map((v) => (v as (Customer[])))); 
   }
 }

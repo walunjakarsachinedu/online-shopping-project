@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
 import { Router } from '@angular/router';
+import { catchError, of } from 'rxjs';
+import { AuthService } from '../common/services/auth.service';
 import { CustomerService } from '../common/services/customer.service';
 import { MyValidators } from '../validators';
 
@@ -9,8 +11,8 @@ import { MyValidators } from '../validators';
   templateUrl: './signup.component.html',
   styleUrls: ['./signup.component.css']
 })
-export class LoginComponent {
-  constructor(private customers: CustomerService, private router: Router) { }
+export class SignupComponent {
+  constructor(private customers: CustomerService, private router: Router, private authService: AuthService) { }
 
   public form = new FormGroup({
     name: new FormControl('', MyValidators.name_),
@@ -28,14 +30,13 @@ export class LoginComponent {
   get email() { return this.form.get("email") }
 
   onSubmit() {
-    this.customers.getCustomerByEmail(this.email?.value ?? '').subscribe(cust => {
-      if(cust.length != 0) return this.form.setErrors({existingUser: true, message: "Email already exists. Please log in or use a different email."});
-      this.customers.post({
-        name: this.name?.value?.toLowerCase(),
-        email: this.email?.value?.toLowerCase(),
-        password: this.password?.value,
-        address: this.address?.value,
-      }).subscribe(value => this.router.navigate(['/signin']));
+    this.authService.createUser({
+      name: this.name?.value?.toLowerCase() ?? '',
+      email: this.email?.value?.toLowerCase() ?? '',
+      password: this.password?.value ?? '',
+      address: this.address?.value ?? '',
     })
+    .pipe(catchError(error => of(this.form.setErrors({userAlreadyExists: true}))))
+    .subscribe(value => this.router.navigate(['/signin']));
   }
 }
