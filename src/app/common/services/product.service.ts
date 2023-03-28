@@ -13,6 +13,10 @@ export class ProductService extends DataService {
   }
 
   getById(id: string): Observable<Product[]> {
-    return this.http.get(this.url + "?id=" + id).pipe(map(v => v as Product[]));
+    return this.http.get(this.url + "?id=" + id, this.headers).pipe(map(v => v as Product[]));
+  }
+
+  filterProducts(query: string) : Observable<Product[]> {
+    return this.http.get(this.url + "?q=" + query, this.headers).pipe(map(v => v as Product[]));
   }
 }

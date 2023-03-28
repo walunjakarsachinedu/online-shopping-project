@@ -1,8 +1,16 @@
+<!-- heading -->
 <div class="m-2 d-flex justify-content-between">
   <h4>Welcome {{authService.currentUser.name}}</h4>
   <button (click)="authService.logout()" class="btn btn-primary">logout</button>
 </div>
+
+<!-- search bar -->
+<div class="m-5" width=>
+  <input type="text" class="form-control" placeholder="Search" (input)="onChange($event)">
+</div>
 <br>
+
+<!-- product list -->
 <div class="m-5 row">
     <div *ngFor="let product of products" class="m-5 border-0 text-center" (click)="router.navigate(['/product-detail', product])">
       <!-- <img [src]="Util.getImageUrl(product.image)" alt="ear buds" class="img-fluid"> -->

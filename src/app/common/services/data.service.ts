@@ -9,18 +9,20 @@ import { InvalidCredentials } from '../exceptions/invalid-credentials';
 export class DataService {
   constructor(public url: string, public http: HttpClient) { }
 
+  headers = { headers: {"authorization": "Bearer " + localStorage.getItem("token")} };
+
   getAll(): Observable<any> {
-    return this.http.get(this.url, { headers: {"authorization": "Bearer " + localStorage.getItem("token")}})
+    return this.http.get(this.url, this.headers)
       .pipe(catchError(this.handleError))
   }
 
   get(id: string | null): Observable<any> {
-    return this.http.get(this.url + "/" + id)
+    return this.http.get(this.url + "/" + id, this.headers)
       .pipe(catchError(this.handleError))
   }
   
   post(payload: any) {
-    return this.http.post(this.url, payload)
+    return this.http.post(this.url, payload, this.headers)
       .pipe(map(res => JSON.parse(JSON.stringify(res))))
       .pipe(catchError(this.handleError))
   }
