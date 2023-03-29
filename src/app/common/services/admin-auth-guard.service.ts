@@ -13,7 +13,7 @@ export class AdminAuthGuard{
   ) { }
 
   canActivate: CanActivateFn = (route, state) => {
-    if(this.authService.currentUser.admin) return true;
+    if(this.authService.currentUser.role == "admin") return true;
     this.router.navigate(['no-access']);
     return false; 
   }

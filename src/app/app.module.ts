@@ -21,6 +21,8 @@ import { AdminAuthGuard } from './common/services/admin-auth-guard.service';
 import { NotFoundComponent } from './not-found/not-found.component';
 import { RedirectComponent } from './redirect/redirect.component';
 import { DataService } from './common/services/data.service';
+import { AdminComponent } from './admin/admin.component';
+import { ManageProductComponent } from './manage-product/manage-product.component';
 
 @NgModule({
   declarations: [
@@ -34,6 +36,8 @@ import { DataService } from './common/services/data.service';
     NoAccessComponent,
     NotFoundComponent,
     RedirectComponent,
+    AdminComponent,
+    ManageProductComponent,
   ],
   imports: [
     BrowserModule,
@@ -48,6 +52,8 @@ import { DataService } from './common/services/data.service';
       {path: 'product-detail', component: ProductDetailComponent},
       {path: 'no-access', component: NoAccessComponent},
       {path: 'test', component: TestComponent, canActivate: [AuthGuard, AdminAuthGuard]},
+      {path: 'admin-home', component: AdminComponent, canActivate: [AuthGuard, AdminAuthGuard]},
+      {path: 'manage/products', component: ManageProductComponent, canActivate: [AuthGuard, AdminAuthGuard]},
       {path: '**', component: NotFoundComponent},
     ])
   ],

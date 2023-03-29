@@ -1,7 +1,13 @@
 <!-- heading -->
 <div class="m-2 d-flex justify-content-between">
   <h4>Welcome {{authService.currentUser.name}}</h4>
-  <button (click)="authService.logout()" class="btn btn-primary">logout</button>
+  <div>
+    <button *ngIf="authService.currentUser.role=='admin'" (click)="router.navigate(['/admin-home'])"
+      class="mx-2 btn btn-primary">Admin
+      Setting
+    </button>
+    <button (click)="authService.logout()" class="btn btn-primary">logout</button>
+  </div>
 </div>
 
 <!-- search bar -->
@@ -12,12 +18,15 @@
 
 <!-- product list -->
 <div class="m-5 row">
-    <div *ngFor="let product of products" class="m-5 border-0 text-center" (click)="router.navigate(['/product-detail', product])">
-      <!-- <img [src]="Util.getImageUrl(product.image)" alt="ear buds" class="img-fluid"> -->
-      <div height="200px" width="200px" class="">
-        <img [src]="product.image" height=200px alt="ear buds">
-      </div>
-      <div> <h2>{{product.name}}</h2> </div>
-      <div> {{product.description}} </div>
+  <div *ngFor="let product of products" class="m-5 border-0 text-center"
+    (click)="router.navigate(['/product-detail', product])">
+    <!-- <img [src]="Util.getImageUrl(product.image)" alt="ear buds" class="img-fluid"> -->
+    <div height="200px" width="200px" class="">
+      <img [src]="product.image" height=200px alt="ear buds">
+    </div>
+    <div>
+      <h2>{{product.name}}</h2>
+    </div>
+    <div> {{product.description}} </div>
   </div>
 </div>

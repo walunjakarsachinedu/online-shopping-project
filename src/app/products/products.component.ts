@@ -22,6 +22,7 @@ export class ProductsComponent implements OnInit{
       this.products = products;
     });
   }
+
   onChange(event: Event) {
     this.console.log("on change function is called");
     const query =  (event.target as HTMLInputElement).value;

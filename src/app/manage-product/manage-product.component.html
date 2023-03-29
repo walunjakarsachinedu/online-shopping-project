@@ -1,0 +1,37 @@
+<div class="m-4 mx-5">
+  <div class="d-flex flex-column">
+    <h1>Manage Product</h1>
+    <br>
+    <div class="d-flex justify-content-between align-items-center">
+      <div class="h3"> Product Name </div>
+    </div>
+
+    <div *ngFor="let product of products">
+      <div class="d-flex justify-content-between align-items-center">
+        {{ product.name }}
+        <div>
+          <button class="btn btn-group">
+            <button type="button" class="btn btn-outline-primary"
+              (click)="updateProductQuantity(product, -1)">-</button>
+            <button type="button" class="btn btn-outline-primary">{{ product.quantity }}</button>
+            <button type="button" class="btn btn-outline-primary"
+              (click)="updateProductQuantity(product, +1)">+</button>
+          </button>
+          <button class="btn btn-primary">
+            <i class="bi bi-trash"></i>
+          </button>
+        </div>
+      </div>
+    </div>
+    <br>
+  </div>
+
+  <div class="d-flex justify-content-end">
+    <button class="me-3 btn btn-outline-primary">
+      Cancel
+    </button>
+    <button class="btn btn-primary" (click)="saveProduct()">
+      Save Changes
+    </button>
+  </div>
+</div>

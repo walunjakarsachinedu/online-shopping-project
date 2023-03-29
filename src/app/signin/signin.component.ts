@@ -31,7 +31,9 @@ export class SigninComponent {
     this.authService.login(this.form.value).subscribe(islogin => {
       if(!islogin) return this.form.setErrors({auth: true});
       let returnUrl = this.activeRoute.snapshot.queryParamMap.get('returnUrl');
-      this.router.navigate([returnUrl || '/products']);
+      let homePage = "/";
+      if(this.authService.currentUser.role == "admin") homePage = "/admin-home";
+      this.router.navigate([returnUrl || homePage]);
     });
   }
 

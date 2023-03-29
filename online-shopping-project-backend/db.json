@@ -9,7 +9,15 @@
       "role": "admin"
     },
     {
-      "name": "aditya",
+      "name": "admin user",
+      "email": "admin@gmail.com",
+      "password": "Passw0rd",
+      "address": "admin address",
+      "id": 1,
+      "role": "admin"
+    },
+    {
+      "name": "aditya gaykwad",
       "email": "aditya@gmail.com",
       "password": "Passw0rd",
       "address": "dummy address",
@@ -17,7 +25,7 @@
       "role": "admin"
     },
     {
-      "name": "akshay",
+      "name": "akshay kumar",
       "email": "akshay@gmail.com",
       "password": "Passw0rd",
       "address": "dummy address",
@@ -31,6 +39,14 @@
       "password": "Passw0rd",
       "address": "dummy address",
       "role": "user"
+    },
+    {
+      "id": "1680020289934",
+      "name": "allu arjun",
+      "email": "allu@gmail.com",
+      "password": "Allu@123",
+      "address": "karnatak",
+      "role": "user"
     }
   ],
   "products": [
@@ -39,84 +55,96 @@
       "name": "Apple 2020 MacBook Air Laptop M1 chip",
       "description": "Apple 2020 MacBook Air Laptop M1 chip, 13.3-inch/33.74 cm Retina Display, 8GB RAM, 256GB SSD Storage, Backlit Keyboard, FaceTime HD Camera, Touch ID. Works with iPhone/iPad; Silver",
       "image": "https://m.media-amazon.com/images/I/710TJuHTMhL._AC_UY218_.jpg",
-      "price": 84990
+      "price": 84990,
+      "quantity": 20
     },
     {
       "id": 2,
       "name": "Maxima",
       "description": "Maxima Max Pro X5 Smartwatch-Premium Ultra Slim 1.7” HD Display with 15 Days Battery Life,IP68 Resistance,60+ Watch Faces,Sleep&SpO2 Monitoring,Social Media alerts, Multiple Exercise Modes(Jet Black)",
       "image": "https://m.media-amazon.com/images/I/61me-IcSRyL._AC_UY218_.jpg",
-      "price": 1869
+      "price": 1869,
+      "quantity": 20
     },
     {
       "id": 3,
       "name": "Echo Dot (3rd Gen)",
       "description": "Echo Dot (3rd Gen), Certified Refurbished, Black – Improved smart speaker with Alexa – Like new, backed with 1-year warranty",
       "image": "https://m.media-amazon.com/images/I/61EXU8BuGZL._AC_UY218_.jpg",
-      "price": 1869
+      "price": 1869,
+      "quantity": 20
     },
     {
       "id": 1,
       "name": "Apple 2020 MacBook Air Laptop M1 chip",
       "description": "Apple 2020 MacBook Air Laptop M1 chip, 13.3-inch/33.74 cm Retina Display, 8GB RAM, 256GB SSD Storage, Backlit Keyboard, FaceTime HD Camera, Touch ID. Works with iPhone/iPad; Silver",
       "image": "https://m.media-amazon.com/images/I/710TJuHTMhL._AC_UY218_.jpg",
-      "price": 84990
+      "price": 84990,
+      "quantity": 20
     },
     {
       "id": 2,
       "name": "Maxima",
       "description": "Maxima Max Pro X5 Smartwatch-Premium Ultra Slim 1.7” HD Display with 15 Days Battery Life,IP68 Resistance,60+ Watch Faces,Sleep&SpO2 Monitoring,Social Media alerts, Multiple Exercise Modes(Jet Black)",
       "image": "https://m.media-amazon.com/images/I/61me-IcSRyL._AC_UY218_.jpg",
-      "price": 1869
+      "price": 1869,
+      "quantity": 20
     },
     {
       "id": 3,
       "name": "Echo Dot (3rd Gen)",
       "description": "Echo Dot (3rd Gen), Certified Refurbished, Black – Improved smart speaker with Alexa – Like new, backed with 1-year warranty",
       "image": "https://m.media-amazon.com/images/I/61EXU8BuGZL._AC_UY218_.jpg",
-      "price": 1869
+      "price": 1869,
+      "quantity": 20
     },
     {
       "id": 1,
       "name": "Apple 2020 MacBook Air Laptop M1 chip",
       "description": "Apple 2020 MacBook Air Laptop M1 chip, 13.3-inch/33.74 cm Retina Display, 8GB RAM, 256GB SSD Storage, Backlit Keyboard, FaceTime HD Camera, Touch ID. Works with iPhone/iPad; Silver",
       "image": "https://m.media-amazon.com/images/I/710TJuHTMhL._AC_UY218_.jpg",
-      "price": 84990
+      "price": 84990,
+      "quantity": 20
     },
     {
       "id": 2,
       "name": "Maxima",
       "description": "Maxima Max Pro X5 Smartwatch-Premium Ultra Slim 1.7” HD Display with 15 Days Battery Life,IP68 Resistance,60+ Watch Faces,Sleep&SpO2 Monitoring,Social Media alerts, Multiple Exercise Modes(Jet Black)",
       "image": "https://m.media-amazon.com/images/I/61me-IcSRyL._AC_UY218_.jpg",
-      "price": 1869
+      "price": 1869,
+      "quantity": 20
     },
     {
       "id": 3,
       "name": "Echo Dot (3rd Gen)",
       "description": "Echo Dot (3rd Gen), Certified Refurbished, Black – Improved smart speaker with Alexa – Like new, backed with 1-year warranty",
       "image": "https://m.media-amazon.com/images/I/61EXU8BuGZL._AC_UY218_.jpg",
-      "price": 1869
+      "price": 1869,
+      "quantity": 20
     },
     {
       "id": 1,
       "name": "Apple 2020 MacBook Air Laptop M1 chip",
       "description": "Apple 2020 MacBook Air Laptop M1 chip, 13.3-inch/33.74 cm Retina Display, 8GB RAM, 256GB SSD Storage, Backlit Keyboard, FaceTime HD Camera, Touch ID. Works with iPhone/iPad; Silver",
       "image": "https://m.media-amazon.com/images/I/710TJuHTMhL._AC_UY218_.jpg",
-      "price": 84990
+      "price": 84990,
+      "quantity": 20
     },
     {
       "id": 2,
       "name": "Maxima",
       "description": "Maxima Max Pro X5 Smartwatch-Premium Ultra Slim 1.7” HD Display with 15 Days Battery Life,IP68 Resistance,60+ Watch Faces,Sleep&SpO2 Monitoring,Social Media alerts, Multiple Exercise Modes(Jet Black)",
       "image": "https://m.media-amazon.com/images/I/61me-IcSRyL._AC_UY218_.jpg",
-      "price": 1869
+      "price": 1869,
+      "quantity": 20
     },
     {
       "id": 3,
       "name": "Echo Dot (3rd Gen)",
       "description": "Echo Dot (3rd Gen), Certified Refurbished, Black – Improved smart speaker with Alexa – Like new, backed with 1-year warranty",
       "image": "https://m.media-amazon.com/images/I/61EXU8BuGZL._AC_UY218_.jpg",
-      "price": 1869
+      "price": 1869,
+      "quantity": 20
     }
   ],
   "comments": [ { "id": 1, "body": "some comment", "postId": 1 } ],
