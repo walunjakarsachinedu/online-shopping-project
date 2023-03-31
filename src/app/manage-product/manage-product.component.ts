@@ -22,14 +22,17 @@ export class ManageProductComponent implements OnInit {
   }  
 
   updateProductQuantity(product: Product, quantityChange: number) {
+    if(product.quantity + quantityChange < 0) return;
     this.changedQuantity[product.id] = (this.changedQuantity[product.id] ?? 0) + quantityChange;
     if(this.changedQuantity[product.id] === 0) delete this.changedQuantity[product.id];
     product.quantity += quantityChange;
   }
 
   setProductQuantity(product: Product, value: Event) {
-    let quantity = Number((value.target as HTMLInputElement).value);
-    let originalQuantity = (product.quantity - this.changedQuantity[product.id] ?? 0);
+    let input = value.target as HTMLInputElement;
+    if(input.value == '') input.value = '0';
+    let quantity = Number(input.value);
+    let originalQuantity = (product.quantity - (this.changedQuantity[product.id] ?? 0));
 
     this.changedQuantity[product.id] = quantity - originalQuantity;
     if(this.changedQuantity[product.id] === 0) delete this.changedQuantity[product.id];
@@ -37,7 +40,7 @@ export class ManageProductComponent implements OnInit {
   }
 
   deleteProduct(product: Product) {
-    product.quantity -= this.changedQuantity[product.id] ?? 0;
+    product.quantity -= (this.changedQuantity[product.id] ?? 0);
     let index = this.products.indexOf(product);
     this.products.splice(index, 1);
     delete this.changedQuantity[product.id];

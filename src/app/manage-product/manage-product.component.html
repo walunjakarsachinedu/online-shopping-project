@@ -46,7 +46,11 @@
     >
       Cancel
     </button>
-    <button class="btn btn-primary" (click)="saveChanges()">
+    <button 
+      class="btn btn-primary" 
+      (click)="saveChanges()" 
+      [disabled]="!this.isDataChanged"
+    >
       Save Changes
     </button>
   </div>
