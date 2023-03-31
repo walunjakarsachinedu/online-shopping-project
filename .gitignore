@@ -43,3 +43,5 @@ Thumbs.db
 /reference-ui
 
 /online-shopping-project-backend/node_modules
+
+test.ts

@@ -1,6 +1,12 @@
+<div class="m-2 d-flex justify-content-end">
+  <button *ngIf="authService.currentUser.role=='admin'" routerLink="/admin-home" class="mx-2 btn btn-primary">Admin
+    Setting
+  </button>
+  <button (click)="authService.logout()" class="btn btn-primary">logout</button>
+</div>
 <div class="m-4 mx-5">
+  <div class="h1 d-flex justify-content-center">Manage Product</div>
   <div class="d-flex flex-column">
-    <h1>Manage Product</h1>
     <br>
     <div class="d-flex justify-content-between align-items-center">
       <div class="h3"> Product Name </div>
@@ -13,11 +19,16 @@
           <button class="btn btn-group">
             <button type="button" class="btn btn-outline-primary"
               (click)="updateProductQuantity(product, -1)">-</button>
-            <button type="button" class="btn btn-outline-primary">{{ product.quantity }}</button>
+              <input class="btn btn-outline-primary quantity-input white-text" [value]="product.quantity"
+                [style.width]="(product.quantity.toString().length + 3) + 'ch'"
+                onkeydown="return (event.keyCode >= 48 && event.keyCode <= 57) || event.keyCode === 8 || event.keyCode === 37 || event.keyCode === 39;"
+                (input)="setProductQuantity(product, $event)"
+              >
+
             <button type="button" class="btn btn-outline-primary"
               (click)="updateProductQuantity(product, +1)">+</button>
           </button>
-          <button class="btn btn-primary">
+          <button class="btn btn-primary" (click)="deleteProduct(product)">
             <i class="bi bi-trash"></i>
           </button>
         </div>
@@ -27,10 +38,15 @@
   </div>
 
   <div class="d-flex justify-content-end">
-    <button class="me-3 btn btn-outline-primary">
+    <button 
+      class="me-3 btn btn-outline-primary" 
+      (click)="cancelChanges()" 
+      [disabled]="!this.isDataChanged"
+      title="Undo local changes"
+    >
       Cancel
     </button>
-    <button class="btn btn-primary" (click)="saveProduct()">
+    <button class="btn btn-primary" (click)="saveChanges()">
       Save Changes
     </button>
   </div>

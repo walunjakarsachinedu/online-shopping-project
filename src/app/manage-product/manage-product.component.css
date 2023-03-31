@@ -1,0 +1,11 @@
+.white-text {
+  background: #FFFFFF; /* Replace with the desired white color code */
+  color: var(--bs-primary);
+  box-shadow: none;
+  cursor: text;
+}
+
+.white-text:hover {
+  background-color: var(--bs-primary);
+  color: white;
+}

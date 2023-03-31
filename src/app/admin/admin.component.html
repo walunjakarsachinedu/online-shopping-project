@@ -1,7 +1,9 @@
-<a href="/" class="btn btn-primary m-2 bi bi-arrow-left">
-</a>
+<div class="m-2 d-flex justify-content-between">
+  <a href="/" class="btn btn-primary bi bi-arrow-left"></a>
+  <button (click)="authService.logout()" class="btn btn-primary">logout</button>
+</div>
+<div class="h1 d-flex justify-content-center">Admin Settings</div>
 <div class="my-5 d-flex flex-column align-items-center">
-  <h1>Admin Settings</h1>
   <h4><a routerLink="/products">view products</a></h4>
   <h4><a routerLink="/manage/products">manage products</a></h4>
   <h4><a routerLink="/users">manage users</a></h4>

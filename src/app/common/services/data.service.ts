@@ -27,6 +27,18 @@ export class DataService {
       .pipe(catchError(this.handleError))
   }
 
+  patch(id: string, payload: any) {
+    return this.http.patch(this.url + "/" + id, payload, this.headers)
+      .pipe(map(res => JSON.parse(JSON.stringify(res))))
+      .pipe(catchError(this.handleError))
+  }
+
+  delete(id: string) {
+    return this.http.delete(this.url + "/" + id, this.headers)
+      .pipe(map(res => JSON.parse(JSON.stringify(res))))
+      .pipe(catchError(this.handleError))
+  }
+
   handleError(error: Response) {
     if(error.status == 400) return throwError(() => new BadRequestError(error));
     if(error.status == 401) return throwError(() => new InvalidCredentials(error));

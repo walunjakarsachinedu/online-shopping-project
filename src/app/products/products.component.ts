@@ -24,7 +24,6 @@ export class ProductsComponent implements OnInit{
   }
 
   onChange(event: Event) {
-    this.console.log("on change function is called");
     const query =  (event.target as HTMLInputElement).value;
     this.productService.filterProducts(query).subscribe(products => {
       this.products = products;
