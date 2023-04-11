@@ -23,6 +23,7 @@ import { RedirectComponent } from './redirect/redirect.component';
 import { DataService } from './common/services/data.service';
 import { AdminComponent } from './admin/admin.component';
 import { ManageProductComponent } from './manage-product/manage-product.component';
+import { EditProductComponent } from './edit-product/edit-product.component';
 
 @NgModule({
   declarations: [
@@ -38,6 +39,7 @@ import { ManageProductComponent } from './manage-product/manage-product.componen
     RedirectComponent,
     AdminComponent,
     ManageProductComponent,
+    EditProductComponent,
   ],
   imports: [
     BrowserModule,
@@ -54,6 +56,7 @@ import { ManageProductComponent } from './manage-product/manage-product.componen
       {path: 'test', component: TestComponent, canActivate: [AuthGuard, AdminAuthGuard]},
       {path: 'admin-home', component: AdminComponent, canActivate: [AuthGuard, AdminAuthGuard]},
       {path: 'manage/products', component: ManageProductComponent, canActivate: [AuthGuard, AdminAuthGuard]},
+      {path: 'edit/product/:id', component: EditProductComponent, canActivate: [AuthGuard, AdminAuthGuard]},
       {path: '**', component: NotFoundComponent},
     ])
   ],

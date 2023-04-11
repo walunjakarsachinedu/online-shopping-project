@@ -1,0 +1,46 @@
+<a href="/manage/products" class="ms-3 mt-3 btn btn-primary bi bi-arrow-left"></a>
+
+<div class="mx-4 mt-3">
+  <div class="d-flex justify-content-center">
+    <h2>Edit Product</h2>
+  </div>
+  <div *ngIf="product">
+    <div class="form-group">
+      <label for="product-name" class="mb-1">Product Name</label>
+      <input type="text" id="product-name" class="form-control" placeholder="Enter Product Name" [value]="product.name" (change)="product.name = productName.value;" #productName>
+    </div>
+    <br>
+    <div class="form-group">
+      <label for="description" class="mb-1">Description</label>
+      <textarea id="description" class="form-control" placeholder="Enter Description" [value]="product.description" (change)="product.description = description.value;" #description></textarea>
+    </div>
+    <br>
+    <div class="form-group">
+      <label for="image-url" class="mb-1">Image Url</label>
+      <input type="url" id="image-url" class="form-control" placeholder="Enter Image Url" [value]="product.image" (change)="product.image = imageUrlInput.value;" #imageUrlInput>
+    </div>
+    <br>
+    <div>
+      Image Preview : <img [src]="product.image" alt="product image" height="100px">
+    </div>
+  </div>
+</div>
+
+
+<!-- save or cancel changes -->
+<br><br>
+<div class="d-flex justify-content-end">
+  <button 
+    class="me-3 btn btn-outline-primary" 
+    (click)="onCancel()" 
+    title="Undo local changes"
+  >
+    Cancel
+  </button>
+  <button 
+    class="me-3 btn btn-primary" 
+    (click)="onSave()" 
+  >
+    Save Changes
+  </button>
+</div>

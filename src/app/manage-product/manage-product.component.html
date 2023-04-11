@@ -14,19 +14,24 @@
 
     <div *ngFor="let product of products">
       <div class="d-flex justify-content-between align-items-center">
-        {{ product.name }}
+        <div [routerLink]="['/edit/product', product.id]" type="button">
+          {{ product.name }}
+        </div>
         <div>
           <button class="btn btn-group">
             <button type="button" class="btn btn-outline-primary"
-              (click)="updateProductQuantity(product, -1)">-</button>
-              <input class="btn btn-outline-primary quantity-input white-text" [value]="product.quantity"
-                [style.width]="(product.quantity.toString().length + 3) + 'ch'"
-                onkeydown="return (event.keyCode >= 48 && event.keyCode <= 57) || event.keyCode === 8 || event.keyCode === 37 || event.keyCode === 39;"
-                (input)="setProductQuantity(product, $event)"
-              >
-
+              (click)="updateProductQuantity(product, -1)">
+              -
+            </button>
+            <input class="btn btn-outline-primary quantity-input white-text" [value]="product.quantity"
+              [style.width]="(product.quantity.toString().length + 3) + 'ch'"
+              onkeydown="return (event.keyCode >= 48 && event.keyCode <= 57) || event.keyCode === 8 || event.keyCode === 37 || event.keyCode === 39;"
+              (input)="setProductQuantity(product, $event)"
+            >
             <button type="button" class="btn btn-outline-primary"
-              (click)="updateProductQuantity(product, +1)">+</button>
+              (click)="updateProductQuantity(product, +1)">
+            +
+            </button>
           </button>
           <button class="btn btn-primary" (click)="deleteProduct(product)">
             <i class="bi bi-trash"></i>

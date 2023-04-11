@@ -74,6 +74,6 @@ export class ManageProductComponent implements OnInit {
   }
 
   get isDataChanged():boolean {
-    return Object.keys(this.changedQuantity).length !== 0 || Object.keys(this.deleteProduct).length !== 0;
+    return Object.keys(this.changedQuantity).length !== 0 || Object.keys(this.deletedProduct).length !== 0;
   }
 }

@@ -18,14 +18,9 @@
 <!-- product list -->
 <div class="m-5 row">
   <div *ngFor="let product of products" class="m-5 border-0 text-center"
-    (click)="router.navigate(['/product-detail', product])">
-    <!-- <img [src]="Util.getImageUrl(product.image)" alt="ear buds" class="img-fluid"> -->
-    <div height="200px" width="200px" class="">
-      <img [src]="product.image" height=200px alt="ear buds">
-    </div>
-    <div>
-      <h2>{{product.name}}</h2>
-    </div>
-    <div> {{product.description}} </div>
+    (click)="router.navigate(['/product-detail', product])" type="button">
+    <img [src]="product.image" height=200px alt="ear buds">
+    <h2>{{product.name}}</h2>
+    {{product.description}} 
   </div>
 </div>
