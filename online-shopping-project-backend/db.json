@@ -52,9 +52,9 @@
   "products": [
     {
       "id": 1,
-      "name": "Apple 2020 MacBook Air Laptop M1 chip",
-      "description": "Apple 2020 MacBook Air Laptop M1 chip, 13.3-inch/33.74 cm Retina Display, 8GB RAM, 256GB SSD Storage, Backlit Keyboard, FaceTime HD Camera, Touch ID. Works with iPhone/iPad; Silver",
-      "image": "https://m.media-amazon.com/images/I/710TJuHTMhL._AC_UY218_.jpg",
+      "name": "Customise your 13‑inch MacBook Pro - Space Grey",
+      "description": "Apple M2 chip with 8-core CPU, 10-core GPU and 16-core Neural Engine\n8GB unified memory\n256GB SSD storage\n33.02 cm (13-inch) Retina display with True Tone\nTwo Thunderbolt / USB 4 ports\nTouch Bar and Touch ID\nBacklit Magic Keyboard - US English\nForce Touch trackpad",
+      "image": "https://store.storeimages.cdn-apple.com/4668/as-images.apple.com/is/mbp-spacegray-select-202206?wid=640&hei=595&fmt=jpeg&qlt=95&.v=1664497359481",
       "price": 84990,
       "quantity": 20
     },

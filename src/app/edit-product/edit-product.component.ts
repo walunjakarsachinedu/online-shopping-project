@@ -17,14 +17,20 @@ export class EditProductComponent implements OnInit {
 
   ngOnInit(): void {
     this.activatedRoute.paramMap.subscribe(value => this.id = value.get("id"));
-    this.productService.getById(this.id ?? '').subscribe(products => this.product = products[0]);
+    this.productService.getById(this.id ?? '').subscribe(products => {
+      this.product = products[0];
+      this.originalProduct = {...this.product};
+    });
   }
 
   
 
-  onCancel() {}
+  onCancel() {
+    this.product = {...this.originalProduct};
+  }
 
   onSave() {
-
+    this.originalProduct = {...this.product};
+    this.productService.patch(this.product.id, this.product).subscribe();
   }
 }
