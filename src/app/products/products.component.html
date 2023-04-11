@@ -1,7 +1,6 @@
 <!-- heading -->
 <div class="m-2 d-flex justify-content-between">
-  <h4>Welcome {{authService.currentUser.name}}</h4>
-  <div>
+  <h4>Welcome {{authService.currentUser.name}}</h4> <div>
     <button *ngIf="authService.currentUser.role=='admin'" (click)="router.navigate(['/admin-home'])"
       class="mx-2 btn btn-primary">Admin Setting
     </button>
@@ -16,8 +15,8 @@
 <br>
 
 <!-- product list -->
-<div class="m-5 row">
-  <div *ngFor="let product of products" class="m-5 border-0 text-center"
+<div class="m-5 row justify-content-center">
+  <div *ngFor="let product of products" class="m-5 border-0 text-center col-lg-3 col-md-4 col-sm-6 col-12"
     (click)="router.navigate(['/product-detail', product])" type="button">
     <img [src]="product.image" height=200px alt="ear buds">
     <h2>{{product.name}}</h2>

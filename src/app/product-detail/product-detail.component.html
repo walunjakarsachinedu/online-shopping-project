@@ -1,3 +1,10 @@
+<div class="m-3 d-flex justify-content-between">
+  <a routerLink="/products" class="btn btn-primary bi bi-arrow-left"></a>
+  <div *ngIf="authService.currentUser.role=='admin'">
+    <a [routerLink]="['/edit/product', product.id]" class="btn btn-primary bi bi-pencil-square"></a>
+  </div>
+</div>
+
 <div class="m-5 text-center" *ngIf="product">
   <div height="200px" width="200px" class="">
     <img [src]="product.image" height=200px alt="ear buds">
@@ -5,3 +12,6 @@
   <div> <h2>{{product.name}}</h2> </div>
   <div> {{product.description}} </div>
 </div>
+
+
+
