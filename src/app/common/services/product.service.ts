@@ -9,7 +9,7 @@ import { DataService } from "./data.service";
 })
 export class ProductService extends DataService { 
   constructor(http: HttpClient) { 
-    super("http://localhost:3000/products", http);
+    super("http://10.1.27.225:3000/products", http);
   }
 
   getById(id: string): Observable<Product[]> {

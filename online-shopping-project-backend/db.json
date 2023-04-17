@@ -47,13 +47,29 @@
       "password": "Allu@123",
       "address": "karnatak",
       "role": "user"
+    },
+    {
+      "id": "1681472289740",
+      "name": "sachin",
+      "email": "sachin@gmail.com",
+      "password": "Passw0rd",
+      "address": "dummy",
+      "role": "user"
+    },
+    {
+      "id": "1681472709632",
+      "name": "kiran",
+      "email": "kiran@gmail.com",
+      "password": "Passw0rd",
+      "address": "dummy",
+      "role": "user"
     }
   ],
   "products": [
     {
       "id": 1,
       "name": "Customise your 13‑inch MacBook Pro - Space Grey",
-      "description": "Apple M2 chip with 8-core CPU, 10-core GPU and 16-core Neural Engine\n8GB unified memory\n256GB SSD storage\n33.02 cm (13-inch) Retina display with True Tone\nTwo Thunderbolt / USB 4 ports\nTouch Bar and Touch ID\nBacklit Magic Keyboard - US English\nForce Touch trackpad",
+      "description": "Apple M2 chip Laptop with 8-core CPU, 10-core GPU and 16-core Neural Engine\n8GB unified memory\n256GB SSD storage\n33.02 cm (13-inch) Retina display with True Tone\nTwo Thunderbolt / USB 4 ports\nTouch Bar and Touch ID\nBacklit Magic Keyboard - US English\nForce Touch trackpad",
       "image": "https://store.storeimages.cdn-apple.com/4668/as-images.apple.com/is/mbp-spacegray-select-202206?wid=640&hei=595&fmt=jpeg&qlt=95&.v=1664497359481",
       "price": 84990,
       "quantity": 13
@@ -100,9 +116,9 @@
     },
     {
       "id": 8,
-      "name": "Maxima",
-      "description": "Maxima Max Pro X5 Smartwatch-Premium Ultra Slim 1.7” HD Display with 15 Days Battery Life,IP68 Resistance,60+ Watch Faces,Sleep&SpO2 Monitoring,Social Media alerts, Multiple Exercise Modes(Jet Black)",
-      "image": "https://m.media-amazon.com/images/I/61me-IcSRyL._AC_UY218_.jpg",
+      "name": "Godrej 244 L 3 Star Frost Free Inverter Double Door Refrigerator ",
+      "description": "Nano Shield Technology: Before food reaches your fridge, it crosses many hands and gathers many germs. With Godrej’s Nano Shield Technology, now get 95%+ Food Surface disinfection.Cool Balance Technology: Get optimal and precise cooling in every part of the Fridge with the help of revolutionary air flow system.",
+      "image": "https://m.media-amazon.com/images/I/313l-PgpT+L._SX342_SY445_.jpg",
       "price": 1869,
       "quantity": 20
     },
@@ -147,14 +163,6 @@
       "quantity": 20
     }
   ],
-  "comments": [
-    {
-      "id": 16,
-      "body": "some comment",
-      "postId": 1
-    }
-  ],
-  "profile": {
-    "name": "typicode"
-  }
+  "comments": [ { "id": 16, "body": "some comment", "postId": 1 } ],
+  "profile": { "name": "typicode" }
 }

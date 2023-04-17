@@ -15,7 +15,7 @@ export class AuthService{
   constructor(private router: Router, private activatedRoute: ActivatedRoute, private customerService: CustomerService, private http: HttpClient) {}
 
   login(credential: {email?: string | null, password?: string | null}): Observable<boolean> {
-    let dataservice = new DataService("http://localhost:3000/login", this.http);
+    let dataservice = new DataService("http://10.1.27.225:3000/login", this.http);
     return dataservice.post(credential)
     .pipe(map((token) => {
       localStorage.setItem("token", token.token);
@@ -24,7 +24,7 @@ export class AuthService{
   }
 
   createUser(customer: Customer) {
-    let dataservice = new DataService("http://localhost:3000/customers", this.http);
+    let dataservice = new DataService("http://10.1.27.225:3000/customers", this.http);
     return dataservice.post(customer)
     .pipe(map((customer) => {
       return customer != null;
