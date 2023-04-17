@@ -24,6 +24,9 @@ import { DataService } from './common/services/data.service';
 import { AdminComponent } from './admin/admin.component';
 import { ManageProductComponent } from './manage-product/manage-product.component';
 import { EditProductComponent } from './edit-product/edit-product.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { ToastrModule } from 'ngx-toastr';
+import { ProductPreviewComponent } from './product-preview/product-preview.component'; 
 
 @NgModule({
   declarations: [
@@ -40,8 +43,14 @@ import { EditProductComponent } from './edit-product/edit-product.component';
     AdminComponent,
     ManageProductComponent,
     EditProductComponent,
+    ProductPreviewComponent,
   ],
   imports: [
+    BrowserAnimationsModule,
+    ToastrModule.forRoot({
+      positionClass: 'toast-bottom-left',
+      preventDuplicates: true,
+    }),
     BrowserModule,
     HttpClientModule,
     ReactiveFormsModule,

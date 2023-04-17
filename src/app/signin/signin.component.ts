@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
+import { ToastrModule, ToastrService } from 'ngx-toastr';
 import { AuthService } from '../common/services/auth.service';
 import { CustomerService } from '../common/services/customer.service';
 import { MyValidators } from '../validators';
@@ -15,7 +16,8 @@ export class SigninComponent {
     private customers: CustomerService, 
     private router: Router, 
     private authService: AuthService, 
-    private activeRoute: ActivatedRoute
+    private activeRoute: ActivatedRoute,
+    private toastr: ToastrService,
   ) { }
 
   public form = new FormGroup({
@@ -29,7 +31,10 @@ export class SigninComponent {
 
   signin() {
     this.authService.login(this.form.value).subscribe(islogin => {
-      if(!islogin) return this.form.setErrors({auth: true});
+      if(!islogin) {
+        this.toastr.error("Oops! The email or password you entered is incorrect. Please try again.");
+        return this.form.setErrors({auth: true});
+      }
       let returnUrl = this.activeRoute.snapshot.queryParamMap.get('returnUrl');
       let homePage = "/";
       if(this.authService.currentUser.role == "admin") homePage = "/admin-home";

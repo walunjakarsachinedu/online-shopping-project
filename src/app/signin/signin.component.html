@@ -1,9 +1,4 @@
   <form class="form m-5 d-flex flex-column" (ngSubmit)="signin()" [formGroup]="form">
-    <div *ngIf="this.form.errors?.['auth']">
-      <div class="alert alert-danger">
-        Invalid Email or Password
-      </div><br>
-    </div>
     <input type="text" class="form-control" placeholder="Email" formControlName="email">
     <input-error [input]="email"></input-error> 
     <br>

@@ -63,6 +63,14 @@
       "password": "Passw0rd",
       "address": "dummy",
       "role": "user"
+    },
+    {
+      "id": "1681716286946",
+      "name": "abhinav",
+      "email": "abhinav@gmail.com",
+      "password": "Passw0rd",
+      "address": "dummy addresss",
+      "role": "user"
     }
   ],
   "products": [

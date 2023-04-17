@@ -16,10 +16,7 @@
 
 <!-- product list -->
 <div class="m-5 row justify-content-center">
-  <div *ngFor="let product of products" class="m-5 border-0 text-center col-lg-3 col-md-4 col-sm-6 col-12"
-    (click)="router.navigate(['/product-detail', product])" type="button">
-    <img [src]="product.image" height=200px alt="ear buds">
-    <h2>{{product.name}}</h2>
-    {{product.description}} 
+  <div *ngFor="let product of products" class="m-5 border-0 text-center col-lg-3 col-md-4 col-sm-6 col-12">
+    <product-preview [product]="product"></product-preview>
   </div>
 </div>

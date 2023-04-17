@@ -1,0 +1,8 @@
+<div *ngIf="product" style="position: relative">
+  <div
+    (click)="router.navigate(['/product-detail', product!])" type="button">
+    <img [src]="product.image" height=200px alt="ear buds">
+    <h2>{{product.name}}</h2>
+    {{product.description}} 
+  </div>
+</div>
