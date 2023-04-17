@@ -26,7 +26,10 @@ import { ManageProductComponent } from './manage-product/manage-product.componen
 import { EditProductComponent } from './edit-product/edit-product.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ToastrModule } from 'ngx-toastr';
-import { ProductPreviewComponent } from './product-preview/product-preview.component'; 
+import { ProductPreviewComponent } from './product-preview/product-preview.component';
+import { CartComponent } from './cart/cart.component';
+import { ShoppingCartComponent } from './shopping-cart/shopping-cart.component'; 
+import { ShoppingCartService } from './common/services/shopping-cart.service';
 
 @NgModule({
   declarations: [
@@ -44,6 +47,8 @@ import { ProductPreviewComponent } from './product-preview/product-preview.compo
     ManageProductComponent,
     EditProductComponent,
     ProductPreviewComponent,
+    CartComponent,
+    ShoppingCartComponent,
   ],
   imports: [
     BrowserAnimationsModule,
@@ -66,10 +71,12 @@ import { ProductPreviewComponent } from './product-preview/product-preview.compo
       {path: 'admin-home', component: AdminComponent, canActivate: [AuthGuard, AdminAuthGuard]},
       {path: 'manage/products', component: ManageProductComponent, canActivate: [AuthGuard, AdminAuthGuard]},
       {path: 'edit/product/:id', component: EditProductComponent, canActivate: [AuthGuard, AdminAuthGuard]},
+      {path: 'shopping-cart', component: ShoppingCartComponent, canActivate: [AuthGuard]},
+
       {path: '**', component: NotFoundComponent},
     ])
   ],
-  providers: [CustomerService, ProductService, AuthService, AdminAuthGuard],
+  providers: [CustomerService, ProductService, AuthService, AdminAuthGuard, ShoppingCartService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

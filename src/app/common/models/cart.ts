@@ -1,6 +1,6 @@
 export class Cart {
     constructor(
-        public customerId: string,
-        public products: string[]
+        public userId: string,
+        public products: {id: string, quantity: number}[]
     ) { }
 }

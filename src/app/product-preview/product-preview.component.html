@@ -2,7 +2,8 @@
   <div
     (click)="router.navigate(['/product-detail', product!])" type="button">
     <img [src]="product.image" height=200px alt="ear buds">
-    <h2>{{product.name}}</h2>
-    {{product.description}} 
+    <h4>{{product.name}}</h4>
+    <!-- {{product.description}}  -->
   </div>
+  <div class="btn-sm border border-2 border-dark rounded-5">Add to Cart</div>
 </div>

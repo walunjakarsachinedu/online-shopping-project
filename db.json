@@ -76,7 +76,7 @@
   "products": [
     {
       "id": 1,
-      "name": "Customise your 13‑inch MacBook Pro - Space Grey",
+      "name": "13‑inch MacBook Pro - Space Grey",
       "description": "Apple M2 chip Laptop with 8-core CPU, 10-core GPU and 16-core Neural Engine\n8GB unified memory\n256GB SSD storage\n33.02 cm (13-inch) Retina display with True Tone\nTwo Thunderbolt / USB 4 ports\nTouch Bar and Touch ID\nBacklit Magic Keyboard - US English\nForce Touch trackpad",
       "image": "https://store.storeimages.cdn-apple.com/4668/as-images.apple.com/is/mbp-spacegray-select-202206?wid=640&hei=595&fmt=jpeg&qlt=95&.v=1664497359481",
       "price": 84990,
@@ -84,7 +84,7 @@
     },
     {
       "id": 3,
-      "name": "Sony HT-S20R Real 5.1ch Dolby Digital Soundbar",
+      "name": "Sony HT-S20R Soundbar",
       "description": "Dolby Audio : Enjoy dramatic, high-quality surround sound from 5.1 separate audio channels with Dolby Digital\n5.1ch Surround Sound : 5.1 channels of real surround sound. ",
       "image": "https://m.media-amazon.com/images/I/315GYJ3MhcL._SY300_SX300_QL70_ML2_.jpg",
       "price": 1869,
@@ -124,7 +124,7 @@
     },
     {
       "id": 8,
-      "name": "Godrej 244 L 3 Star Frost Free Inverter Double Door Refrigerator ",
+      "name": "Godrej 244L 3 Star Refrigerator ",
       "description": "Nano Shield Technology: Before food reaches your fridge, it crosses many hands and gathers many germs. With Godrej’s Nano Shield Technology, now get 95%+ Food Surface disinfection.Cool Balance Technology: Get optimal and precise cooling in every part of the Fridge with the help of revolutionary air flow system.",
       "image": "https://m.media-amazon.com/images/I/313l-PgpT+L._SX342_SY445_.jpg",
       "price": 1869,
@@ -132,7 +132,7 @@
     },
     {
       "id": 9,
-      "name": "68.4cm (26.9\") Curved Monitor with AMD Freesync and Game mode",
+      "name": "68.4cm (26.9\") Curved Monitor",
       "description": "Comfortable and Immersive viewing experience with curved screen\nIncredibly slim and stylish design with bezel-less screen\nSmooth game play with AMD Freesync and Game mode",
       "image": "https://images.samsung.com/is/image/samsung/p6pim/in/lc27r500fhwxxl/gallery/in-c27r5-lc27r500fhwxxl-401472876?$650_519_PNG$",
       "price": 1869,
