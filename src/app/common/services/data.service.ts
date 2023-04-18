@@ -12,6 +12,7 @@ export class DataService {
   headers = { headers: {"authorization": "Bearer " + localStorage.getItem("token")} };
 
   getAll(): Observable<any> {
+    console.log(this.headers);
     return this.http.get(this.url, this.headers)
       .pipe(catchError(this.handleError))
   }

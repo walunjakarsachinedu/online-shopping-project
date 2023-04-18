@@ -4,6 +4,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { Product } from '../common/models/product';
 import { AuthService } from '../common/services/auth.service';
 import { ProductService } from '../common/services/product.service';
+import { Location } from '@angular/common';
 
 @Component({
   selector: 'product-detail',
@@ -11,7 +12,12 @@ import { ProductService } from '../common/services/product.service';
   styleUrls: ['./product-detail.component.css']
 })
 export class ProductDetailComponent implements OnInit {
-  constructor(private routerData: ActivatedRoute, private service: ProductService, public authService: AuthService, public router: Router) { }
+  constructor(private routerData: ActivatedRoute, 
+    private service: ProductService, 
+    public authService: AuthService, 
+    public router: Router,
+    public location: Location
+  ) { }
   product!: Product;
   id!: string|null;
   

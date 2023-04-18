@@ -2,6 +2,10 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Cart } from '../common/models/cart';
 import { ShoppingCartService } from '../common/services/shopping-cart.service';
+import { Product } from "../common/models/product";
+import { ProductService } from '../common/services/product.service';
+import { Location } from '@angular/common';
+import { CartItem } from '../common/models/cart-item';
 
 @Component({
   selector: 'app-shopping-cart',
@@ -10,15 +14,31 @@ import { ShoppingCartService } from '../common/services/shopping-cart.service';
 })
 export class ShoppingCartComponent implements OnInit {
   customerId?: string;
-  cart?: any;
-  constructor(private activatedRoute: ActivatedRoute, private cartService: ShoppingCartService) {}
+  cart?: Cart;
+  products?: Product[];
+  constructor(
+    private activatedRoute: ActivatedRoute, 
+    private cartService: ShoppingCartService, 
+    private productService: ProductService,
+    public location: Location,
+  ) { }
 
   ngOnInit(): void {
     this.activatedRoute.paramMap.subscribe(v => {
       this.customerId = v.get('id') ?? undefined;  
-      this.cartService.getById(this.customerId ?? '').subscribe(cart => {
-        this.cart = cart;
+      this.cartService.getById(this.customerId ?? '').subscribe(carts => {
+        this.cart = carts[0];
+        this.cart.products.forEach(cartItem => {
+          this.productService.getById(cartItem.id).subscribe(products => {
+            cartItem.product = products[0];
+          });
+        });
       });
     });
+  }
+
+  public updateProductQuatity(cartItem: CartItem, newQuantity: number) {
+    cartItem.quantity +=  newQuantity;
+    this.cartService.changeProductQuantity(this.cart?.userId ?? "", cartItem.id, cartItem.quantity);
   }
 }

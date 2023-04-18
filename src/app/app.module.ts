@@ -20,14 +20,12 @@ import { NoAccessComponent } from './no-access/no-access.component';
 import { AdminAuthGuard } from './common/services/admin-auth-guard.service';
 import { NotFoundComponent } from './not-found/not-found.component';
 import { RedirectComponent } from './redirect/redirect.component';
-import { DataService } from './common/services/data.service';
 import { AdminComponent } from './admin/admin.component';
 import { ManageProductComponent } from './manage-product/manage-product.component';
 import { EditProductComponent } from './edit-product/edit-product.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ToastrModule } from 'ngx-toastr';
 import { ProductPreviewComponent } from './product-preview/product-preview.component';
-import { CartComponent } from './cart/cart.component';
 import { ShoppingCartComponent } from './shopping-cart/shopping-cart.component'; 
 import { ShoppingCartService } from './common/services/shopping-cart.service';
 
@@ -47,7 +45,6 @@ import { ShoppingCartService } from './common/services/shopping-cart.service';
     ManageProductComponent,
     EditProductComponent,
     ProductPreviewComponent,
-    CartComponent,
     ShoppingCartComponent,
   ],
   imports: [
@@ -71,7 +68,7 @@ import { ShoppingCartService } from './common/services/shopping-cart.service';
       {path: 'admin-home', component: AdminComponent, canActivate: [AuthGuard, AdminAuthGuard]},
       {path: 'manage/products', component: ManageProductComponent, canActivate: [AuthGuard, AdminAuthGuard]},
       {path: 'edit/product/:id', component: EditProductComponent, canActivate: [AuthGuard, AdminAuthGuard]},
-      {path: 'shopping-cart', component: ShoppingCartComponent, canActivate: [AuthGuard]},
+      {path: 'shopping-cart/:id', component: ShoppingCartComponent, canActivate: [AuthGuard]},
 
       {path: '**', component: NotFoundComponent},
     ])

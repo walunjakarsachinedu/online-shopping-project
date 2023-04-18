@@ -1,5 +1,5 @@
 <div *ngIf="product" class="m-3 d-flex justify-content-between">
-  <a routerLink="/products" class="btn btn-primary bi bi-arrow-left"></a>
+  <a (click)="location.back()" class="btn btn-primary bi bi-arrow-left"></a>
   <div *ngIf="authService.currentUser.role=='admin'">
     <a [routerLink]="['/edit/product', product.id]" class="btn btn-primary bi bi-pencil-square"></a>
   </div>
