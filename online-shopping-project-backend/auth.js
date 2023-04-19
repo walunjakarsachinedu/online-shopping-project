@@ -10,7 +10,7 @@ login.use('/', (req, res) => {
   const user = db.customers.find((u) => u.email === email && u.password === password);
   if (user) {
     const { id, name, role } = user;
-    const token = jwt.sign({ id, name, email, role }, 'secret', { expiresIn: '1h' });
+    const token = jwt.sign({ id, name, email, role }, 'secret', { expiresIn: '365d' });
     res.json({ token });
   } else {
     res.status(401).json({ error: 'Invalid credentials' });
@@ -25,7 +25,13 @@ registerUser.post('/', (req, res) => {
   const existingUser = db.customers.find((u) => u.email == email);
   if(existingUser) {
     res.status(409).json({error: "User already exists"});
-  } else {
+  } 
+  else if (name == undefined || email == undefined || password == undefined || address == undefined) {
+    console.log("create user: some required fields are missing");
+    res.status(400).json({error: "Missing required user data fields."});
+  }
+  else {
+    console.log(name, email, password, address);
     const newUser = { id, name, email, password, address, role };
     db.customers.push(newUser);
     fs.writeFile('./db.json', beautify(db, null, 2, 80), (err) => {

@@ -27,7 +27,7 @@ export class ShoppingCartComponent implements OnInit {
     this.activatedRoute.paramMap.subscribe(v => {
       this.customerId = v.get('id') ?? undefined;  
       this.cartService.getById(this.customerId ?? '').subscribe(carts => {
-        this.cart = carts[0];
+        this.cart = carts;
         this.cart.products.forEach(cartItem => {
           this.productService.getById(cartItem.id).subscribe(products => {
             cartItem.product = products[0];
@@ -38,7 +38,8 @@ export class ShoppingCartComponent implements OnInit {
   }
 
   public updateProductQuatity(cartItem: CartItem, newQuantity: number) {
+    console.log("updating product quantity with product id: " + this.cart?.id);
     cartItem.quantity +=  newQuantity;
-    this.cartService.changeProductQuantity(this.cart?.userId ?? "", cartItem.id, cartItem.quantity);
+    this.cartService.patch(this.cart?.id ?? "", this.cart).subscribe();
   }
 }
