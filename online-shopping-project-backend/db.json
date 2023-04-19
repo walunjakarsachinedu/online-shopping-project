@@ -212,24 +212,7 @@
     },
     {
       "id": 2,
-      "products": [
-        {
-          "id": 1,
-          "quantity": 1
-        },
-        {
-          "id": 6,
-          "quantity": 2
-        },
-        {
-          "id": 3,
-          "quantity": 1
-        },
-        {
-          "id": 4,
-          "quantity": 1
-        }
-      ]
+      "products": []
     }
   ],
   "comments": [

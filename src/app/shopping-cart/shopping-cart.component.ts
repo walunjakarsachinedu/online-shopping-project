@@ -39,11 +39,21 @@ export class ShoppingCartComponent implements OnInit {
       });
     });
   }
-  
-  public updateProductQuatity(cartItem: CartItem, newQuantity: number) {
+
+  get cartWithoutProductDetails() : Cart {
     let cart = JSON.parse(JSON.stringify(this.cart));;
     cart?.products?.forEach((p: CartItem) => {delete p.product;});
+    return cart;
+  }
+  
+  public updateProductQuatity(cartItem: CartItem, newQuantity: number) {
     cartItem.quantity +=  newQuantity;
-    this.cartService.patch(this.cart?.id ?? "", cart).subscribe();
+    this.cartService.patch(this.cart?.id ?? "", this.cartWithoutProductDetails).subscribe();
+  }
+
+  public deleteProductFromCart(cartItem: CartItem) {
+   let index = this.cart?.products.indexOf(cartItem); 
+   this.cart?.products.splice(index!, 1);
+    this.cartService.patch(this.cart?.id ?? "", this.cartWithoutProductDetails).subscribe();
   }
 }
