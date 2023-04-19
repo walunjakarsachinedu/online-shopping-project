@@ -1,9 +1,14 @@
-<div class="m-2 d-flex justify-content-end">
-  <button *ngIf="authService.currentUser.role=='admin'" routerLink="/admin-home" class="mx-2 btn btn-primary">Admin
-    Setting
-  </button>
-  <button (click)="authService.logout()" class="btn btn-primary">logout</button>
+
+<div class="m-2 d-flex justify-content-between">
+  <a class="btn btn-primary bi bi-arrow-left" (click)="location.back()"></a>
+  <div>
+    <button *ngIf="authService.currentUser.role=='admin'" routerLink="/admin-home" class="mx-2 btn btn-primary">Admin
+      Setting
+    </button>
+    <button (click)="authService.logout()" class="btn btn-primary">logout</button>
+  </div>
 </div>
+
 <div class="m-4 mx-5">
   <div class="h1 d-flex justify-content-center">Manage Product</div>
   <div class="d-flex flex-column">

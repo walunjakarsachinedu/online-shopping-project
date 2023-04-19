@@ -2,37 +2,43 @@
   <i class="bi bi-chevron-left"></i>
 </button>
 <br><br>
-<div class="container pb-2">
-  Cart Summary
-</div>
-<div *ngIf="cart" class="border border-2 container">
-  <div class="d-flex flex-column justify-content-between">
-    <div *ngFor="let item of cart.products" class="mt-3 mx-3">
-      <div *ngIf="item.product">
-        <div class="d-flex justify-content-between align-items-center">
-          <!-- product -->
-          <div class="col-5 d-flex align-items-center" >
-              <img [src]="item.product.image" alt="product image" width="70px">
-              &nbsp;&nbsp;
-              <small>
-                {{ item.product.name }}
-              </small>
-          </div>
-          <!-- quantity -->
-          <div class="border px-2" style="user-select: none;">
-            <div class="small">
-              <span (click)="updateProductQuatity(item, -1)" style="cursor: pointer;">-</span>
-              &nbsp;&nbsp;&nbsp;&nbsp;{{item.quantity}}&nbsp;&nbsp;&nbsp;&nbsp;
-              <span (click)="updateProductQuatity(item, +1)" style="cursor: pointer;">+</span>
+<div *ngIf="cart">
+  <div class="container pb-2">
+    Cart Summary
+  </div>
+  <div *ngIf="cart" class="border border-2 container">
+    <div class="d-flex flex-column justify-content-between">
+      <div *ngFor="let item of cart.products" class="mt-3 mx-3">
+        <div *ngIf="item.product">
+          <div class="d-flex justify-content-between align-items-center">
+            <!-- product -->
+            <div class="col-5 d-flex align-items-center" >
+                <img [src]="item.product.image" alt="product image" width="70px">
+                &nbsp;&nbsp;
+                <small>
+                  {{ item.product.name }}
+                </small>
+            </div>
+            <!-- quantity -->
+            <div class="border px-2" style="user-select: none;">
+              <div class="small">
+                <span (click)="updateProductQuatity(item, -1)" style="cursor: pointer;">-</span>
+                &nbsp;&nbsp;&nbsp;&nbsp;{{item.quantity}}&nbsp;&nbsp;&nbsp;&nbsp;
+                <span (click)="updateProductQuatity(item, +1)" style="cursor: pointer;">+</span>
+              </div>
             </div>
           </div>
         </div>
       </div>
-    </div>
-    <br> 
-    <!-- order button -->
-    <div class="d-flex justify-content-end">
-      <button class="btn btn-primary container m-3 rounded-0">Place Order</button>
+      <br> 
+      <!-- order button -->
+      <div class="d-flex justify-content-end">
+        <button class="btn btn-primary container m-3 rounded-0">Place Order</button>
+      </div>
     </div>
   </div>
+</div>
+<div *ngIf="!cart" class="d-flex flex-column align-items-center">
+  <h4>Empty Shopping Cart</h4> 
+  You haven't selected any items to add to your shopping cart yet.
 </div>

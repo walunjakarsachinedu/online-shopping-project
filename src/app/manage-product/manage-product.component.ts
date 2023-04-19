@@ -3,6 +3,7 @@ import { catchError, firstValueFrom, of } from 'rxjs';
 import { Product } from '../common/models/product';
 import { AuthService } from '../common/services/auth.service';
 import { ProductService } from '../common/services/product.service';
+import { Location } from '@angular/common';
 
 @Component({
   selector: 'app-manage-product',
@@ -13,7 +14,11 @@ export class ManageProductComponent implements OnInit {
   products: Product[] = [];
   changedQuantity: {[id: string]: number} = {}; // id: quantityChanged
   deletedProduct: {[id: string]: {product: Product, index: number}} = {}; // id: deletedProduct
-  constructor(private productService: ProductService, public authService: AuthService) { }
+
+  constructor(private productService: ProductService, 
+    public authService: AuthService, 
+    public location: Location,
+  ) { }
 
   ngOnInit(): void {
     this.productService.getAll().subscribe(products => {

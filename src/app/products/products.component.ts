@@ -44,11 +44,16 @@ export class ProductsComponent implements OnInit{
   }
 
   addProductToCard(id: string) {
-    console.log("adding product with " + id + " to shopping cart");
-    let product = this.cart?.products?.find(p => p.id == id);
-    if(product) product.quantity++;
-    else this.cart?.products.push(new CartItem(id, 1));
-    this.cartService.patch(this.userId!, this.cart).subscribe();
+    if(!this.cart) {
+      this.cart = new Cart(this.userId!, [new CartItem(id, 1)]);
+      this.cartService.post(this.cart).subscribe();
+    }
+    else {
+      let product = this.cart?.products?.find(p => p.id == id);
+      if(product) product.quantity++;
+      else this.cart?.products.push(new CartItem(id, 1));
+      this.cartService.patch(this.userId!, this.cart).subscribe();
+    }
   }
 }
   

@@ -6,6 +6,7 @@ import { Product } from "../common/models/product";
 import { ProductService } from '../common/services/product.service';
 import { Location } from '@angular/common';
 import { CartItem } from '../common/models/cart-item';
+import { catchError, of } from 'rxjs';
 
 @Component({
   selector: 'app-shopping-cart',
@@ -26,7 +27,9 @@ export class ShoppingCartComponent implements OnInit {
   ngOnInit(): void {
     this.activatedRoute.paramMap.subscribe(v => {
       this.customerId = v.get('id') ?? undefined;  
-      this.cartService.getById(this.customerId ?? '').subscribe(carts => {
+      this.cartService.getById(this.customerId ?? '')
+      .subscribe(carts => {
+        if(!carts) return;
         this.cart = carts;
         this.cart.products.forEach(cartItem => {
           this.productService.getById(cartItem.id).subscribe(products => {
@@ -42,6 +45,5 @@ export class ShoppingCartComponent implements OnInit {
     cart?.products?.forEach((p: CartItem) => {delete p.product;});
     cartItem.quantity +=  newQuantity;
     this.cartService.patch(this.cart?.id ?? "", cart).subscribe();
-
   }
 }

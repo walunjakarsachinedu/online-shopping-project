@@ -2,11 +2,11 @@
 <div class="m-2 d-flex justify-content-between">
   <h4>Welcome {{authService.currentUser.name}}</h4> 
   <div>
-    <button class="btn btn-primary" [routerLink]='["/shopping-cart/", authService.currentUser.id]'>
-      Cart ({{ cart?.products?.length }})
+    <button class="me-2 btn btn-primary" [routerLink]='["/shopping-cart/", authService.currentUser.id]'>
+      Cart ({{ cart?.products?.length ?? 0 }})
     </button>
     <button *ngIf="authService.currentUser.role=='admin'" (click)="router.navigate(['/admin-home'])"
-      class="mx-2 btn btn-primary">Admin Setting
+      class="me-2 btn btn-primary">Admin Setting
     </button>
     <button (click)="authService.logout()" class="btn btn-primary">logout</button>
   </div>
