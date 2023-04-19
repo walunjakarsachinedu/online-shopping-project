@@ -5,5 +5,5 @@
     <h4>{{product.name}}</h4>
     <!-- {{product.description}}  -->
   </div>
-  <div class="btn-sm border border-2 border-dark rounded-5">Add to Cart</div>
+  <button class="btn btn-sm border border-2 border-dark rounded-5" (click)="onAddToCart.emit(product.id)">Add to Cart</button>
 </div>

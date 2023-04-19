@@ -36,10 +36,12 @@ export class ShoppingCartComponent implements OnInit {
       });
     });
   }
-
+  
   public updateProductQuatity(cartItem: CartItem, newQuantity: number) {
-    console.log("updating product quantity with product id: " + this.cart?.id);
+    let cart = JSON.parse(JSON.stringify(this.cart));;
+    cart?.products?.forEach((p: CartItem) => {delete p.product;});
     cartItem.quantity +=  newQuantity;
-    this.cartService.patch(this.cart?.id ?? "", this.cart).subscribe();
+    this.cartService.patch(this.cart?.id ?? "", cart).subscribe();
+
   }
 }

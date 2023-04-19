@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { Router } from '@angular/router';
 import { Product } from '../common/models/product';
 
@@ -8,6 +8,7 @@ import { Product } from '../common/models/product';
   styleUrls: ['./product-preview.component.css']
 })
 export class ProductPreviewComponent {
+  @Output() onAddToCart = new EventEmitter<string>();
   @Input() product?: Product;
   constructor(public router: Router) { }
 }
