@@ -29,14 +29,24 @@
                   <span (click)="updateProductQuatity(item, +1)" class="pointer">+</span>
                 </div>
               </div>
+              <div class="ps-3 font-weight-bold" >
+                <b>
+                  ₹ {{item.product.price.toLocaleString()}}
+                </b>
+              </div>
             </div>
           </div>
         </div>
       </div>
+      <hr>
+      <div class="d-flex justify-content-end pe-3">
+        {{'Total (' + cart.products.length + ' Items) : ' }} &nbsp;
+        <b>{{'₹ ' + getTotal.toLocaleString() }}</b> 
+      </div>
       <br> 
       <!-- order button -->
       <div class="d-flex justify-content-end">
-        <button class="btn btn-primary container m-3 rounded-0">Place Order</button>
+        <button class="btn btn-primary container m-3 rounded-0" (click)="checkoutItem()">Place Order</button>
       </div>
     </div>
   </div>

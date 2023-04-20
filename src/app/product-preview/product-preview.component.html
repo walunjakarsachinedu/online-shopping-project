@@ -2,8 +2,13 @@
   <div
     (click)="router.navigate(['/product-detail', product!])" type="button">
     <img [src]="product.image" height=200px alt="ear buds">
-    <h4>{{product.name}}</h4>
+    <div class="text-lead">{{product.name}}</div>
     <!-- {{product.description}}  -->
   </div>
-  <button class="btn btn-sm border border-2 border-dark rounded-5" (click)="onAddToCart.emit(product.id)">Add to Cart</button>
+  <div class="d-flex align-items-center justify-content-center">
+    <div>
+      ₹ {{product.price}} &nbsp;&nbsp;
+    </div>
+    <button class="btn btn-sm border border-2 border-dark rounded-5" (click)="onAddToCart.emit(product.id)">Add to Cart</button>
+  </div>
 </div>

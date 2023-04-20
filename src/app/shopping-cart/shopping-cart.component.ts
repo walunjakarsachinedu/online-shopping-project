@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Cart } from '../common/models/cart';
 import { ShoppingCartService } from '../common/services/shopping-cart.service';
 import { Product } from "../common/models/product";
@@ -7,6 +7,7 @@ import { ProductService } from '../common/services/product.service';
 import { Location } from '@angular/common';
 import { CartItem } from '../common/models/cart-item';
 import { catchError, of } from 'rxjs';
+import { CheckoutService } from '../checkout.service';
 
 @Component({
   selector: 'app-shopping-cart',
@@ -17,11 +18,14 @@ export class ShoppingCartComponent implements OnInit {
   customerId?: string;
   cart?: Cart;
   products?: Product[];
+  total: number = 0;
   constructor(
     private activatedRoute: ActivatedRoute, 
     private cartService: ShoppingCartService, 
     private productService: ProductService,
     public location: Location,
+    public router: Router,
+    public checkoutService: CheckoutService,
   ) { }
 
   ngOnInit(): void {
@@ -34,10 +38,20 @@ export class ShoppingCartComponent implements OnInit {
         this.cart.products.forEach(cartItem => {
           this.productService.getById(cartItem.id).subscribe(products => {
             cartItem.product = products[0];
+            this.total += cartItem.product.price * cartItem.quantity;
           });
         });
       });
     });
+  }
+
+  get getTotal() : number {
+    let total = 0;
+    this.cart?.products.forEach(cartItem => {
+      if(!cartItem.product) return;
+      total += cartItem.product?.price * cartItem.quantity; 
+    })
+    return total;
   }
 
   get cartWithoutProductDetails() : Cart {
@@ -47,6 +61,7 @@ export class ShoppingCartComponent implements OnInit {
   }
   
   public updateProductQuatity(cartItem: CartItem, newQuantity: number) {
+    if(cartItem.quantity + newQuantity < 0) return;
     cartItem.quantity +=  newQuantity;
     this.cartService.patch(this.cart?.id ?? "", this.cartWithoutProductDetails).subscribe();
   }
@@ -55,5 +70,10 @@ export class ShoppingCartComponent implements OnInit {
    let index = this.cart?.products.indexOf(cartItem); 
    this.cart?.products.splice(index!, 1);
     this.cartService.patch(this.cart?.id ?? "", this.cartWithoutProductDetails).subscribe();
+  }
+
+  public checkoutItem() {
+    this.checkoutService.products = this.cart?.products;
+    this.router.navigate(["/checkout-items"]);
   }
 }

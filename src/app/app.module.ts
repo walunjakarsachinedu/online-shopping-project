@@ -28,6 +28,7 @@ import { ToastrModule } from 'ngx-toastr';
 import { ProductPreviewComponent } from './product-preview/product-preview.component';
 import { ShoppingCartComponent } from './shopping-cart/shopping-cart.component'; 
 import { ShoppingCartService } from './common/services/shopping-cart.service';
+import { CheckoutItemsComponent } from './checkout-items/checkout-items.component';
 
 @NgModule({
   declarations: [
@@ -46,6 +47,7 @@ import { ShoppingCartService } from './common/services/shopping-cart.service';
     EditProductComponent,
     ProductPreviewComponent,
     ShoppingCartComponent,
+    CheckoutItemsComponent,
   ],
   imports: [
     BrowserAnimationsModule,
@@ -69,6 +71,7 @@ import { ShoppingCartService } from './common/services/shopping-cart.service';
       {path: 'manage/products', component: ManageProductComponent, canActivate: [AuthGuard, AdminAuthGuard]},
       {path: 'edit/product/:id', component: EditProductComponent, canActivate: [AuthGuard, AdminAuthGuard]},
       {path: 'shopping-cart/:id', component: ShoppingCartComponent, canActivate: [AuthGuard]},
+      {path: 'checkout-items', component: CheckoutItemsComponent, canActivate: [AuthGuard]},
 
       {path: '**', component: NotFoundComponent},
     ])

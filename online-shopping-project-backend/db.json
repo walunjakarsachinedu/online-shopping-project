@@ -72,7 +72,7 @@
       "description": "Apple M2 chip Laptop with 8-core CPU, 10-core GPU and 16-core Neural Engine\n8GB unified memory\n256GB SSD storage\n33.02 cm (13-inch) Retina display with True Tone\nTwo Thunderbolt / USB 4 ports\nTouch Bar and Touch ID\nBacklit Magic Keyboard - US English\nForce Touch trackpad",
       "image": "https://store.storeimages.cdn-apple.com/4668/as-images.apple.com/is/mbp-spacegray-select-202206?wid=640&hei=595&fmt=jpeg&qlt=95&.v=1664497359481",
       "price": 84990,
-      "quantity": 13
+      "quantity": 20
     },
     {
       "id": 3,
@@ -87,7 +87,7 @@
       "name": "Galaxy Tab S8 5G",
       "description": "27.81cm (11\") LTPS LCD Display\nThe biggest leap in S-pen responsiveness with ultra low latency\nSupercharge your charging",
       "image": "https://images.samsung.com/is/image/samsung/p6pim/in/sm-x706bidainu/gallery/in-galaxy-tab-s8-5g-x706-sm-x706bidainu-534249765?$650_519_PNG$",
-      "price": 84990,
+      "price": 70999,
       "quantity": 20
     },
     {
@@ -95,7 +95,7 @@
       "name": "Apple Watch Ultra",
       "description": "The ultra-tough 49mm titanium case with Action button strikes a balance with weight, ruggedness and corrosion resistance. Up to 36 hours¹ of battery life, and up to 60 hours² on low power settings",
       "image": "https://store.storeimages.cdn-apple.com/4668/as-images.apple.com/is/watch-ultra-digitalmat-gallery-3-202209_GEO_IN?wid=364&hei=333&fmt=png-alpha&.v=1661557395249",
-      "price": 1869,
+      "price": 89900,
       "quantity": 20
     },
     {
@@ -103,7 +103,7 @@
       "name": "Pixel 7 Pro",
       "description": "Full-screen 6.7-inch (170 mm)2 display\n19.5:9 aspect ratio\nQHD+ (1440 x 3120) LTPO OLED at 512 PPI\nSmooth Display (up to 120 Hz)3",
       "image": "https://lh3.googleusercontent.com/yi1Wo0LT1FC633ahHo7hEs63FHaoWpRlw4BmGkrQQOcztemUMGRwdHITgEDpE_JSZR2ZpH5R1u4F-z8irTV3JTiHJvGz1kWhhkg=rw-e365-w2880",
-      "price": 1869,
+      "price": 68800,
       "quantity": 19
     },
     {
@@ -111,7 +111,7 @@
       "name": "WH-1000XM5",
       "description": "Industry-leading noise cancelling1 with two high-performance processors and eight microphones\nExceptional sound quality with specially designed 30-mm driver unit\nSuperior noise-free calls with 2 x 2 beamforming microphones and noise reduction system (using AI)",
       "image": "https://www.sony.co.in/image/6145c1d32e6ac8e63a46c912dc33c5bb?fmt=pjpeg&wid=165&bgcolor=FFFFFF&bgc=FFFFFF",
-      "price": 84990,
+      "price": 18900,
       "quantity": 20
     },
     {
@@ -135,7 +135,7 @@
       "name": "32L Fruit Dry, Masala & SunDry™, Convection Microwave Oven, MC32K7056CC",
       "description": "Fruit Dry\nMasala, Tadka & Sun Dry™\nHotBlast™\nCeramic Enamel Cavity with 10 year Warranty\nSlimFry™",
       "image": "https://images.samsung.com/is/image/samsung/in-32-litre-convection-microwave-oven-mc32k7056cc-mc32k7056cc-tl-frontblack-184429900?$650_519_PNG$",
-      "price": 84990,
+      "price": 23500,
       "quantity": 20
     },
     {
@@ -143,7 +143,7 @@
       "name": "Maxima",
       "description": "Maxima Max Pro X5 Smartwatch-Premium Ultra Slim 1.7” HD Display with 15 Days Battery Life,IP68 Resistance,60+ Watch Faces,Sleep&SpO2 Monitoring,Social Media alerts, Multiple Exercise Modes(Jet Black)",
       "image": "https://m.media-amazon.com/images/I/61me-IcSRyL._AC_UY218_.jpg",
-      "price": 1869,
+      "price": 1499,
       "quantity": 20
     },
     {
@@ -151,7 +151,7 @@
       "name": "Echo Dot (3rd Gen)",
       "description": "Echo Dot (3rd Gen), Certified Refurbished, Black – Improved smart speaker with Alexa – Like new, backed with 1-year warranty",
       "image": "https://m.media-amazon.com/images/I/61EXU8BuGZL._AC_UY218_.jpg",
-      "price": 1869,
+      "price": 2949,
       "quantity": 20
     },
     {
@@ -159,7 +159,7 @@
       "name": "Maxima",
       "description": "Maxima Max Pro X5 Smartwatch-Premium Ultra Slim 1.7” HD Display with 15 Days Battery Life,IP68 Resistance,60+ Watch Faces,Sleep&SpO2 Monitoring,Social Media alerts, Multiple Exercise Modes(Jet Black)",
       "image": "https://m.media-amazon.com/images/I/61me-IcSRyL._AC_UY218_.jpg",
-      "price": 1869,
+      "price": 1499,
       "quantity": 20
     }
   ],
@@ -212,7 +212,20 @@
     },
     {
       "id": 2,
-      "products": []
+      "products": [
+        {
+          "id": 4,
+          "quantity": 1
+        },
+        {
+          "id": 1,
+          "quantity": 2
+        },
+        {
+          "id": 3,
+          "quantity": 1
+        }
+      ]
     }
   ],
   "comments": [
