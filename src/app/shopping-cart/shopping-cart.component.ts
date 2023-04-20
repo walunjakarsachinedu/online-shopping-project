@@ -8,6 +8,7 @@ import { Location } from '@angular/common';
 import { CartItem } from '../common/models/cart-item';
 import { catchError, of } from 'rxjs';
 import { CheckoutService } from '../checkout.service';
+import { AuthService } from '../common/services/auth.service';
 
 @Component({
   selector: 'app-shopping-cart',
@@ -25,12 +26,13 @@ export class ShoppingCartComponent implements OnInit {
     private productService: ProductService,
     public location: Location,
     public router: Router,
+    public authService: AuthService,
     public checkoutService: CheckoutService,
   ) { }
 
   ngOnInit(): void {
     this.activatedRoute.paramMap.subscribe(v => {
-      this.customerId = v.get('id') ?? undefined;  
+      this.customerId = this.authService.currentUser.id ?? undefined;  
       this.cartService.getById(this.customerId ?? '')
       .subscribe(carts => {
         if(!carts) return;
@@ -74,6 +76,7 @@ export class ShoppingCartComponent implements OnInit {
 
   public checkoutItem() {
     this.checkoutService.products = this.cart?.products;
+    this.checkoutService.total = this.total;
     this.router.navigate(["/checkout-items"]);
   }
 }

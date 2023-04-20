@@ -1,1 +1,45 @@
-<p>checkout-items works!</p>
+<div class="m-4 card p-4" *ngIf="products" [formGroup]="form">
+  <b>Payment details</b>
+  <br><br> <!-- email address -->
+  <div class="text-secondary pb-1"><small> Email address </small></div>
+  <input type="text" class="form-control" formControlName="email">
+  <input-error [input]="form.get('email')"></input-error>
+  <br> <!-- credit card -->
+  <div class="text-secondary pb-1"><small> Credit Card Number </small></div>
+  <input class="form-control" id="ccn" type="tel" inputmode="numeric" autocomplete="cc-number" maxlength="16" placeholder="xxxx xxxx xxxx xxxx" formControlName="ccn">
+  <input-error [input]="form.get('ccn')"></input-error>
+
+  <br>
+  <div class="row">
+    <div class="col">
+      <!-- expiry date -->
+      <div class="text-secondary pb-1"><small> Expiry Date </small></div>
+      <input type="text" class="form-control" placeholder="mm / yy" maxlength="5" formControlName="exp_date">
+      <input-error [input]="form.get('exp_date')"></input-error>
+    </div>
+    <div class="col">
+      <!-- cvv -->
+      <div class="text-secondary pb-1"><small> CVV </small></div>
+      <input type="text" class="form-control" maxlength="3" placeholder="x x x" formControlName="cvv">
+      <input-error [input]="form.get('cvv')"></input-error>
+    </div>
+  </div>
+  <br><br>
+  <div class="d-flex justify-content-between">
+    <div class="text-secondary"><small> Subtotal</small></div> <b>₹{{getTotal}}</b> 
+  </div>
+  <div class="d-flex justify-content-between mt-3">
+    <div class="text-secondary"><small> Delivery Charges</small></div> <b>₹50</b> 
+  </div>
+  <hr class="border-secondary my-3">
+  <div class="d-flex justify-content-between">
+    <div class="text-secondary"><small> Total Amount</small></div> <b>₹{{getTotal + 50}}</b> 
+  </div>
+  <br><br> 
+  <button 
+    class="btn btn-primary" 
+    [disabled]="isFormInValid"
+    >
+    Make Payment
+  </button>
+</div>

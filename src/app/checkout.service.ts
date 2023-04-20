@@ -5,6 +5,7 @@ import { CartItem } from './common/models/cart-item';
   providedIn: 'root'
 })
 export class CheckoutService {
+  total?: number;
   products?: CartItem[];
   constructor() { }
 }

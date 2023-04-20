@@ -12,7 +12,7 @@ export class ShoppingCartService extends DataService {
     super("http://10.1.27.225:3000/cart", http);
   }
 
-  public getById(userId: string) {
+  public getById(userId: string) : Observable<Cart> {
     return this.http.get(this.url + "/" + userId, this.headers).pipe(map((v) => (v as Cart))); 
   }
 }

@@ -70,7 +70,7 @@ import { CheckoutItemsComponent } from './checkout-items/checkout-items.componen
       {path: 'admin-home', component: AdminComponent, canActivate: [AuthGuard, AdminAuthGuard]},
       {path: 'manage/products', component: ManageProductComponent, canActivate: [AuthGuard, AdminAuthGuard]},
       {path: 'edit/product/:id', component: EditProductComponent, canActivate: [AuthGuard, AdminAuthGuard]},
-      {path: 'shopping-cart/:id', component: ShoppingCartComponent, canActivate: [AuthGuard]},
+      {path: 'shopping-cart', component: ShoppingCartComponent, canActivate: [AuthGuard]},
       {path: 'checkout-items', component: CheckoutItemsComponent, canActivate: [AuthGuard]},
 
       {path: '**', component: NotFoundComponent},
