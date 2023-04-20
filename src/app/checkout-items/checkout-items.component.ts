@@ -2,12 +2,13 @@ import { Component, OnInit } from '@angular/core';
 import { CheckoutService } from '../checkout.service';
 import { CartItem } from '../common/models/cart-item';
 import { ShoppingCartService } from '../common/services/shopping-cart.service';
-import { UrlSerializer } from '@angular/router';
+import { Router, UrlSerializer } from '@angular/router';
 import { AuthService } from '../common/services/auth.service';
 import { ProductService } from '../common/services/product.service';
 import { FormBuilder, FormGroup, ValidationErrors, ValidatorFn, Validators } from '@angular/forms';
 import { AbstractControl } from '@angular/forms';
 import { MyValidators } from '../validators';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-checkout-items',
@@ -24,6 +25,8 @@ export class CheckoutItemsComponent implements OnInit {
     private authService: AuthService,
     private cartService: ShoppingCartService,
     private productService: ProductService,
+    private router: Router,
+    public toastr: ToastrService,
     fb: FormBuilder
   ) {
     this.form = fb.group({

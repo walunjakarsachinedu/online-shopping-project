@@ -29,6 +29,7 @@ import { ProductPreviewComponent } from './product-preview/product-preview.compo
 import { ShoppingCartComponent } from './shopping-cart/shopping-cart.component'; 
 import { ShoppingCartService } from './common/services/shopping-cart.service';
 import { CheckoutItemsComponent } from './checkout-items/checkout-items.component';
+import { OrderHistoryComponent } from './order-history/order-history.component';
 
 @NgModule({
   declarations: [
@@ -48,6 +49,7 @@ import { CheckoutItemsComponent } from './checkout-items/checkout-items.componen
     ProductPreviewComponent,
     ShoppingCartComponent,
     CheckoutItemsComponent,
+    OrderHistoryComponent,
   ],
   imports: [
     BrowserAnimationsModule,
