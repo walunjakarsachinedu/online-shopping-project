@@ -10,6 +10,9 @@ import { AbstractControl } from '@angular/forms';
 import { MyValidators } from '../validators';
 import { ToastrService } from 'ngx-toastr';
 import { Location, LocationChangeEvent } from '@angular/common';
+import { OrderHistoryService } from '../common/services/order-history.service';
+import { Order } from '../common/models/order';
+import { catchError, of } from 'rxjs';
 
 @Component({
   selector: 'app-checkout-items',
@@ -27,6 +30,7 @@ export class CheckoutItemsComponent implements OnInit {
     private cartService: ShoppingCartService,
     private productService: ProductService,
     private router: Router,
+    private orderService: OrderHistoryService,
     public toastr: ToastrService,
     public location: Location,
     fb: FormBuilder
@@ -51,12 +55,6 @@ export class CheckoutItemsComponent implements OnInit {
     });
   }
 
-  // get getTotal() : number {
-  //   let total = 0; 
-  //   this.products?.forEach(cartItem => total += cartItem?.product?.price ?? 0);
-  //   return total;
-  // }
-
   get isFormInValid() {
     return this.form.get("email")?.errors ||
     this.form.get("ccn")?.errors ||
@@ -76,5 +74,31 @@ export class CheckoutItemsComponent implements OnInit {
   makePayment() {
     this.toastr.success('Order placed successfully !!!');
     this.router.navigate(['/products']);
+
+    if(!this.products) return;
+
+    let now = new Date();
+    let order = new Order(
+      now.toISOString(),
+      now.toISOString(),
+      this.products
+    );
+
+    this.orderService.getById(this.authService.currentUser.id)
+    .pipe(catchError((error) => of(undefined)))
+    .subscribe(history => {
+      if(history) {
+        history.push(order);
+        this.orderService.patch(this.authService.currentUser.id, {
+          id: this.authService.currentUser.id,
+          history: history
+        }).subscribe();
+      } else {
+        this.orderService.post({
+          id: this.authService.currentUser.id,
+          history: [order]
+        }).subscribe();
+      }
+    })
   }
 }

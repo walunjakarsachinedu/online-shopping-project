@@ -3,9 +3,9 @@ import { CartItem } from "./cart-item";
 export class Order {
     constructor(
         public id: string,
-        public products: CartItem[],
         public date: string,
-        public status: OrderStatus,
+        public products: CartItem[],
+        public status?: OrderStatus,
     ) { }
 }
 

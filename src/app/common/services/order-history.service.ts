@@ -12,7 +12,8 @@ export class OrderHistoryService extends DataService {
     super("http://localhost:3000/order-history", http);
   }
 
-  getById(id: string) : Observable<Order[]> {
-    return this.http.get(this.url + "/" + id, this.headers).pipe(map((v: any) => v.history as Order[]))
+  getById(id: string) : Observable<Order[] | undefined> {
+    return this.http.get(this.url + "/" + id, this.headers).pipe(map((v: any) => v.history as (Order[] | undefined)))
   }
+
 }

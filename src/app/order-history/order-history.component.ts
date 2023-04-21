@@ -3,6 +3,7 @@ import { Order } from '../common/models/order';
 import { OrderHistoryService } from '../common/services/order-history.service';
 import { AuthService } from '../common/services/auth.service';
 import { ProductService } from '../common/services/product.service';
+import { Location } from '@angular/common';
 
 @Component({
   selector: 'app-order-history',
@@ -15,13 +16,14 @@ export class OrderHistoryComponent implements OnInit {
     private orderHistory: OrderHistoryService,
     private authService: AuthService,
     private productService: ProductService,
+    public location: Location,
   ) { }
 
   ngOnInit(): void {
     let customerId = this.authService.currentUser.id;
     this.orderHistory.getById(customerId).subscribe(history => {
       this.history = history;
-      this.history.forEach(
+      this.history?.forEach(
         order => order.products.forEach(
           product => this.productService.getById(product.id).subscribe(
             products => product.product = products[0])
