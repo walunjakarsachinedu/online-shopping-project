@@ -56,6 +56,15 @@ export class ShoppingCartComponent implements OnInit {
     return total;
   }
 
+  get getTotalCount() : number {
+    let count = 0;
+    this.cart?.products.forEach(cartItem => {
+      if(!cartItem.product) return;
+      count += cartItem.quantity; 
+    })
+    return count;
+  }
+
   get cartWithoutProductDetails() : Cart {
     let cart = JSON.parse(JSON.stringify(this.cart));;
     cart?.products?.forEach((p: CartItem) => {delete p.product;});

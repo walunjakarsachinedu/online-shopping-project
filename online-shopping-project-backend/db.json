@@ -169,18 +169,21 @@
       "products": [
         {
           "id": 1,
+          "quantity": 2
+        },
+        {
+          "id": 6,
+          "quantity": 4
+        },
+        {
+          "id": 3,
           "quantity": 1
         }
       ]
     },
     {
       "id": 3,
-      "products": [
-        {
-          "id": 4,
-          "quantity": 1
-        }
-      ]
+      "products": []
     },
     {
       "id": 2,

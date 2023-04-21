@@ -1,4 +1,4 @@
-<div *ngIf="product" style="position: relative">
+<div *ngIf="product" style="position: relative" class="d-flex flex-column align-items-center">
   <div
     (click)="router.navigate(['/product-detail', product!])" type="button">
     <img [src]="product.image" height=200px alt="ear buds">
