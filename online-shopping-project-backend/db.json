@@ -63,12 +63,20 @@
       "password": "Passw0rd",
       "address": "dummy",
       "role": "user"
+    },
+    {
+      "id": "1682074553970",
+      "name": "raj",
+      "email": "raj@cfx.com",
+      "password": "Passw0rd",
+      "address": "pune",
+      "role": "user"
     }
   ],
   "products": [
     {
       "id": 1,
-      "name": "MacBook Pro - Space Grey",
+      "name": "MacBook Pro - Space Grey111",
       "description": "Apple M2 chip Laptop with 8-core CPU, 10-core GPU and 16-core Neural Engine\n8GB unified memory\n256GB SSD storage\n33.02 cm (13-inch) Retina display with True Tone\nTwo Thunderbolt / USB 4 ports\nTouch Bar and Touch ID\nBacklit Magic Keyboard - US English\nForce Touch trackpad",
       "image": "https://store.storeimages.cdn-apple.com/4668/as-images.apple.com/is/mbp-spacegray-select-202206?wid=640&hei=595&fmt=jpeg&qlt=95&.v=1664497359481",
       "price": 84990,
@@ -140,9 +148,9 @@
     },
     {
       "id": 11,
-      "name": "Maxima",
-      "description": "Maxima Max Pro X5 Smartwatch-Premium Ultra Slim 1.7” HD Display with 15 Days Battery Life,IP68 Resistance,60+ Watch Faces,Sleep&SpO2 Monitoring,Social Media alerts, Multiple Exercise Modes(Jet Black)",
-      "image": "https://m.media-amazon.com/images/I/61me-IcSRyL._AC_UY218_.jpg",
+      "name": "OnePlus USB 3.0 to Type-C OTG Cable Adapter",
+      "description": "New OnePlus USB 3.0 to Type-C OTG Cable Adapter Compatible with USB to c Type Converter Supporting All laptops, Mobile Smartphone and Other Type c Devices (White & Red)",
+      "image": "https://m.media-amazon.com/images/I/412FI6mFh2L._SY450_.jpg",
       "price": 1499,
       "quantity": 20
     },
@@ -156,11 +164,11 @@
     },
     {
       "id": 14,
-      "name": "Maxima",
-      "description": "Maxima Max Pro X5 Smartwatch-Premium Ultra Slim 1.7” HD Display with 15 Days Battery Life,IP68 Resistance,60+ Watch Faces,Sleep&SpO2 Monitoring,Social Media alerts, Multiple Exercise Modes(Jet Black)",
-      "image": "https://m.media-amazon.com/images/I/61me-IcSRyL._AC_UY218_.jpg",
+      "name": "Spinido",
+      "description": "Bestand Spinido for Magic Trackpad 2 MJ2R2LL/A and Apple Magic Keyboard MLA22LL/A (white)",
+      "image": "https://m.media-amazon.com/images/I/51V+6HWfI-L._SY355_.jpg",
       "price": 1499,
-      "quantity": 20
+      "quantity": 21
     }
   ],
   "cart": [
@@ -169,7 +177,7 @@
       "products": [
         {
           "id": 1,
-          "quantity": 2
+          "quantity": 10
         },
         {
           "id": 6,
@@ -177,7 +185,11 @@
         },
         {
           "id": 3,
-          "quantity": 1
+          "quantity": 15
+        },
+        {
+          "id": 4,
+          "quantity": 11
         }
       ]
     },
@@ -199,6 +211,19 @@
         {
           "id": 3,
           "quantity": 1
+        }
+      ]
+    },
+    {
+      "id": "1682074553970",
+      "products": [
+        {
+          "id": 3,
+          "quantity": 4
+        },
+        {
+          "id": 1,
+          "quantity": 3
         }
       ]
     }

@@ -4,6 +4,7 @@ import { Product } from '../common/models/product';
 import { AuthService } from '../common/services/auth.service';
 import { ProductService } from '../common/services/product.service';
 import { Location } from '@angular/common';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-manage-product',
@@ -15,9 +16,11 @@ export class ManageProductComponent implements OnInit {
   changedQuantity: {[id: string]: number} = {}; // id: quantityChanged
   deletedProduct: {[id: string]: {product: Product, index: number}} = {}; // id: deletedProduct
 
-  constructor(private productService: ProductService, 
+  constructor(
+    private productService: ProductService, 
     public authService: AuthService, 
     public location: Location,
+    private toastr: ToastrService,
   ) { }
 
   ngOnInit(): void {
@@ -52,17 +55,19 @@ export class ManageProductComponent implements OnInit {
     this.deletedProduct[product.id] = {product: product, index: index};
   }
 
-  saveChanges() {
+  async saveChanges () {
     for(let id in this.deletedProduct) {
-      this.productService.delete(id).subscribe();
+      await this.productService.delete(id).subscribe();
     }
     for(let id in this.changedQuantity) {
       let product = this.products.find(product => product.id == id);
-      this.productService.patch(id, {quantity: product!.quantity}).subscribe();
+      await this.productService.patch(id, {quantity: product!.quantity}).subscribe();
     }
-
+    
     this.deletedProduct = {}; 
     this.changedQuantity = {};
+
+    this.toastr.success("Changes have been saved successfully!");
   }
 
   cancelChanges() {
