@@ -74,6 +74,7 @@ import { OrderHistoryComponent } from './order-history/order-history.component';
       {path: 'edit/product/:id', component: EditProductComponent, canActivate: [AuthGuard, AdminAuthGuard]},
       {path: 'shopping-cart', component: ShoppingCartComponent, canActivate: [AuthGuard]},
       {path: 'checkout-items', component: CheckoutItemsComponent, canActivate: [AuthGuard]},
+      {path: 'order-history', component: OrderHistoryComponent, canActivate: [AuthGuard]},
 
       {path: '**', component: NotFoundComponent},
     ])

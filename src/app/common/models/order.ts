@@ -1,9 +1,10 @@
+import { CartItem } from "./cart-item";
+
 export class Order {
     constructor(
         public id: string,
-        public customerId: string,
-        public products: string[],
-        public orderDate: Date, 
+        public products: CartItem[],
+        public date: string,
         public status: OrderStatus,
     ) { }
 }

@@ -9,6 +9,7 @@ import { FormBuilder, FormGroup, ValidationErrors, ValidatorFn, Validators } fro
 import { AbstractControl } from '@angular/forms';
 import { MyValidators } from '../validators';
 import { ToastrService } from 'ngx-toastr';
+import { Location, LocationChangeEvent } from '@angular/common';
 
 @Component({
   selector: 'app-checkout-items',
@@ -27,6 +28,7 @@ export class CheckoutItemsComponent implements OnInit {
     private productService: ProductService,
     private router: Router,
     public toastr: ToastrService,
+    public location: Location,
     fb: FormBuilder
   ) {
     this.form = fb.group({
@@ -69,5 +71,10 @@ export class CheckoutItemsComponent implements OnInit {
       total += cartItem.product?.price * cartItem.quantity; 
     })
     return total;
+  }
+
+  makePayment() {
+    this.toastr.success('Order placed successfully !!!');
+    this.router.navigate(['/products']);
   }
 }

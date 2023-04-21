@@ -1,1 +1,36 @@
-<p>order-history works!</p>
+
+<div class="mt-4 accordion container" id="orderHistoryAccordion">
+  <div *ngIf="history && history.length != 0">
+    <h4 class="d-flex justify-content-center">Order History</h4>
+    <br>
+    <div class="accordion-item" *ngFor="let order of history">
+      <h2 class="accordion-header" [id]="order.id">
+        <button class="accordion-button" type="button" data-bs-toggle="collapse"  [attr.data-bs-target]="'#' + toId(order.id)" aria-expanded="true" aria-controls="collapseOne">
+          Orders on date [{{ convertDateFormat(order.date) }}]
+        </button>
+      </h2>
+      <div [id]="toId(order.id)" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#orderHistoryAccordion">
+        <div class="accordion-body">
+          <div class="d-flex justify-content-between">
+            <b>Product</b>
+            <b>Quantity</b>
+          </div>
+          <div *ngFor="let product of order.products">
+            <div class="d-flex justify-content-between">
+              <div [routerLink]="['/product-detail', product]" class="pointer">{{product.product?.name}}</div>
+              <div>{{product.quantity}}</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div *ngIf="!(history && history.length != 0)" class="m-5 d-flex flex-column align-items-center">
+    <h4>Empty Order History</h4>
+    <div>Looks like you haven't made any order yet.</div>
+    <br><br>
+    <img src="https://mir-s3-cdn-cf.behance.net/projects/404/8412d0104101523.Y3JvcCwxMDI0LDgwMCwwLDcw.jpg" alt="">
+  </div>
+
+</div>

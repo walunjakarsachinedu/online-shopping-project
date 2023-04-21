@@ -2,6 +2,9 @@
 <div class="m-2 d-flex justify-content-between">
   <h4>Welcome {{authService.currentUser.name}}</h4> 
   <div>
+    <button class="me-2 btn btn-primary" routerLink="/order-history">
+      Order History
+    </button>
     <button class="me-2 btn btn-primary" routerLink="/shopping-cart">
       Cart ({{ cart?.products?.length ?? 0 }})
     </button>

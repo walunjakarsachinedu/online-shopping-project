@@ -39,9 +39,7 @@
   <button 
     class="btn btn-primary" 
     [disabled]="isFormInValid"
-    (click)="toastr.success('Order placed successfully !!!')"
-    routerLink="/products"
-    >
-    Make Payment
+    (click)="makePayment()"
+  > Make Payment
   </button>
 </div>
