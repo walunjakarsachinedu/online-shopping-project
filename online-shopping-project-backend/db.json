@@ -213,19 +213,6 @@
           "quantity": 1
         }
       ]
-    },
-    {
-      "id": "1682074553970",
-      "products": [
-        {
-          "id": 3,
-          "quantity": 4
-        },
-        {
-          "id": 1,
-          "quantity": 3
-        }
-      ]
     }
   ],
   "order-history": [
@@ -284,10 +271,37 @@
           "products": [
             {
               "id": 1,
-              "quantity": 1,
+              "quantity": 1
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "1682074553970",
+      "history": [
+        {
+          "id": "2023-04-24T04:18:27.168Z",
+          "date": "2023-04-24T04:18:27.168Z",
+          "products": [
+            {
+              "id": 3,
+              "quantity": 4,
+              "product": {
+                "id": 3,
+                "name": "Sony Digital Soundbar",
+                "description": "Dolby Audio : Enjoy dramatic, high-quality surround sound from 5.1 separate audio channels with Dolby Digital\n5.1ch Surround Sound : 5.1 channels of real surround sound. ",
+                "image": "https://m.media-amazon.com/images/I/315GYJ3MhcL._SY300_SX300_QL70_ML2_.jpg",
+                "price": 1869,
+                "quantity": 20
+              }
+            },
+            {
+              "id": 1,
+              "quantity": 3,
               "product": {
                 "id": 1,
-                "name": "MacBook Pro - Space Grey",
+                "name": "MacBook Pro - Space Grey111",
                 "description": "Apple M2 chip Laptop with 8-core CPU, 10-core GPU and 16-core Neural Engine\n8GB unified memory\n256GB SSD storage\n33.02 cm (13-inch) Retina display with True Tone\nTwo Thunderbolt / USB 4 ports\nTouch Bar and Touch ID\nBacklit Magic Keyboard - US English\nForce Touch trackpad",
                 "image": "https://store.storeimages.cdn-apple.com/4668/as-images.apple.com/is/mbp-spacegray-select-202206?wid=640&hei=595&fmt=jpeg&qlt=95&.v=1664497359481",
                 "price": 84990,

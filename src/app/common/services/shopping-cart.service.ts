@@ -15,5 +15,9 @@ export class ShoppingCartService extends DataService {
   public getById(userId: string) : Observable<Cart> {
     return this.http.get(this.url + "/" + userId, this.headers).pipe(map((v) => (v as Cart))); 
   }
+
+  public deleteById(userId: string) {
+    return this.http.delete(this.url + "/" + userId, this.headers); 
+  }
 }
 

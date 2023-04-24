@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { CheckoutService } from '../checkout.service';
 import { CartItem } from '../common/models/cart-item';
 import { ShoppingCartService } from '../common/services/shopping-cart.service';
 import { Router, UrlSerializer } from '@angular/router';
@@ -86,19 +85,18 @@ export class CheckoutItemsComponent implements OnInit {
 
     this.orderService.getById(this.authService.currentUser.id)
     .pipe(catchError((error) => of(undefined)))
-    .subscribe(history => {
+    .subscribe((history) => {
       if(history) {
-        history.push(order);
         this.orderService.patch(this.authService.currentUser.id, {
           id: this.authService.currentUser.id,
           history: history
-        }).subscribe();
+        }).subscribe(() => this.cartService.deleteById(this.authService.currentUser.id).subscribe());
       } else {
         this.orderService.post({
           id: this.authService.currentUser.id,
           history: [order]
-        }).subscribe();
+        }).subscribe(() => this.cartService.deleteById(this.authService.currentUser.id).subscribe());
       }
-    })
+    });
   }
 }
