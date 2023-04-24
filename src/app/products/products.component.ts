@@ -7,6 +7,8 @@ import { Util } from '../utils';
 import { ShoppingCartService } from '../common/services/shopping-cart.service';
 import { Cart } from '../common/models/cart';
 import { CartItem } from '../common/models/cart-item';
+import { ToastrService } from 'ngx-toastr';
+import { Observable, catchError, throwError } from 'rxjs';
 
 @Component({
   selector: 'app-products',
@@ -24,6 +26,7 @@ export class ProductsComponent implements OnInit{
     public router: Router, 
     public authService: AuthService,
     public cartService: ShoppingCartService,
+    public toastr: ToastrService,
   ) { }
 
   ngOnInit(): void {
@@ -44,16 +47,20 @@ export class ProductsComponent implements OnInit{
   }
 
   addProductToCard(id: string) {
+    let request: Observable<any>;
     if(!this.cart) {
       this.cart = new Cart(this.userId!, [new CartItem(id, 1)]);
-      this.cartService.post(this.cart).subscribe();
+      request = this.cartService.post(this.cart);
     }
     else {
       let product = this.cart?.products?.find(p => p.id == id);
       if(product) product.quantity++;
       else this.cart?.products.push(new CartItem(id, 1));
-      this.cartService.patch(this.userId!, this.cart).subscribe();
+      request = this.cartService.patch(this.userId!, this.cart);
     }
+    request
+    .pipe(catchError(e => throwError(() => this.toastr.error("Failed to add product to cart. Please try again later"))))
+    .subscribe(() => this.toastr.success("Product successfully added to shopping cart"));
   }
 }
   

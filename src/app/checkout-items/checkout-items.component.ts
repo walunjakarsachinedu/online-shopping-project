@@ -11,7 +11,7 @@ import { ToastrService } from 'ngx-toastr';
 import { Location, LocationChangeEvent } from '@angular/common';
 import { OrderHistoryService } from '../common/services/order-history.service';
 import { Order } from '../common/models/order';
-import { catchError, of } from 'rxjs';
+import { Observable, catchError, of, throwError } from 'rxjs';
 
 @Component({
   selector: 'app-checkout-items',
@@ -71,8 +71,6 @@ export class CheckoutItemsComponent implements OnInit {
   }
 
   makePayment() {
-    this.toastr.success('Order placed successfully !!!');
-    this.router.navigate(['/products']);
 
     if(!this.products) return;
 
@@ -86,17 +84,25 @@ export class CheckoutItemsComponent implements OnInit {
     this.orderService.getById(this.authService.currentUser.id)
     .pipe(catchError((error) => of(undefined)))
     .subscribe((history) => {
+      let request: Observable<any>;
       if(history) {
-        this.orderService.patch(this.authService.currentUser.id, {
+        request = this.orderService.patch(this.authService.currentUser.id, {
           id: this.authService.currentUser.id,
           history: history
-        }).subscribe(() => this.cartService.deleteById(this.authService.currentUser.id).subscribe());
+        });
       } else {
-        this.orderService.post({
+        request = this.orderService.post({
           id: this.authService.currentUser.id,
           history: [order]
-        }).subscribe(() => this.cartService.deleteById(this.authService.currentUser.id).subscribe());
+        });
       }
+      request
+      .pipe(catchError(er => throwError(() => this.toastr.error('Order failed. Please try again later'))))
+      .subscribe(() => {
+        this.cartService.deleteById(this.authService.currentUser.id).subscribe()
+        this.toastr.success('Order placed successfully !!!');
+        this.router.navigate(['/products']);
+      });
     });
   }
 }
