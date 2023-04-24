@@ -76,7 +76,7 @@
   "products": [
     {
       "id": 1,
-      "name": "MacBook Pro - Space Grey111",
+      "name": "MacBook Pro - Space Grey",
       "description": "Apple M2 chip Laptop with 8-core CPU, 10-core GPU and 16-core Neural Engine\n8GB unified memory\n256GB SSD storage\n33.02 cm (13-inch) Retina display with True Tone\nTwo Thunderbolt / USB 4 ports\nTouch Bar and Touch ID\nBacklit Magic Keyboard - US English\nForce Touch trackpad",
       "image": "https://store.storeimages.cdn-apple.com/4668/as-images.apple.com/is/mbp-spacegray-select-202206?wid=640&hei=595&fmt=jpeg&qlt=95&.v=1664497359481",
       "price": 84990,
@@ -155,20 +155,20 @@
       "quantity": 20
     },
     {
-      "id": 12,
-      "name": "Echo Dot (3rd Gen)",
-      "description": "Echo Dot (3rd Gen), Certified Refurbished, Black – Improved smart speaker with Alexa – Like new, backed with 1-year warranty",
-      "image": "https://m.media-amazon.com/images/I/61EXU8BuGZL._AC_UY218_.jpg",
-      "price": 2949,
-      "quantity": 20
-    },
-    {
       "id": 14,
       "name": "Spinido",
       "description": "Bestand Spinido for Magic Trackpad 2 MJ2R2LL/A and Apple Magic Keyboard MLA22LL/A (white)",
       "image": "https://m.media-amazon.com/images/I/51V+6HWfI-L._SY355_.jpg",
       "price": 1499,
       "quantity": 21
+    },
+    {
+      "name": "ZEBRONICS Bluetooth 5.0 Keyboard",
+      "description": "ZEBRONICS Bluetooth 5.0 Keyboard for Mac, Windows, Android, Up to 3 Connections, Built-in Rechargeable Battery, Scissor switches, 99 Keys Full Size Layout, Slim Design, Type C K5001MW",
+      "image": "https://m.media-amazon.com/images/I/610qTW66BrL._SY355_.jpg",
+      "price": 1999,
+      "quantity": 34,
+      "id": 15
     }
   ],
   "cart": [
@@ -177,19 +177,11 @@
       "products": [
         {
           "id": 1,
-          "quantity": 10
-        },
-        {
-          "id": 6,
-          "quantity": 4
+          "quantity": 1
         },
         {
           "id": 3,
-          "quantity": 15
-        },
-        {
-          "id": 4,
-          "quantity": 11
+          "quantity": 1
         }
       ]
     },

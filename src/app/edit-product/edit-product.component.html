@@ -1,36 +1,81 @@
 <a href="/manage/products" class="ms-3 mt-3 btn btn-primary bi bi-arrow-left"></a>
 
 <div class="mx-4 mt-3">
-  <div class="d-flex justify-content-center">
-    <h2>Edit Product</h2>
-  </div>
-  <div *ngIf="product">
-    <div class="form-group">
-      <label for="product-name" class="mb-1">Product Name</label>
-      <input type="text" id="product-name" class="form-control" placeholder="Enter Product Name" [value]="product.name" (change)="product.name = productName.value;" #productName>
+  <form [formGroup]="form">
+    <div class="d-flex justify-content-center">
+       
+      <h2>{{id ? 'Edit Product' : 'Create Product'}}</h2>
     </div>
-    <br>
-    <div class="form-group">
-      <label for="description" class="mb-1">Description</label>
-      <textarea id="description" class="form-control" placeholder="Enter Description" [value]="product.description" (change)="product.description = description.value;" #description></textarea>
+    <div *ngIf="true">
+
+      <!-- name -->
+      <div class="form-group">
+        <label for="product-name" class="mb-1">Product Name*</label>
+        <input formControlName="name" type="text" id="product-name" class="form-control" placeholder="Enter Product Name">
+      </div>
+      <div 
+        *ngIf="name?.touched && name?.errors != null"
+        class="alert alert-danger"
+      > Product name is required </div>
+      <br>
+      
+      <!-- description -->
+      <div class="form-group">
+        <label for="description" class="mb-1">Description*</label>
+        <textarea formControlName="description" id="description" class="form-control" placeholder="Enter Description"></textarea>
+      </div>
+      <div 
+        *ngIf="description?.touched && description?.errors != null"
+        class="alert alert-danger"
+      >Description is required </div>
+      <br>
+
+      <!-- image -->
+      <div class="form-group">
+        <label for="image-url" class="mb-1">Image Url*</label>
+        <input formControlName="image" type="url" id="image-url" class="form-control" placeholder="Enter Image Url">
+      </div>
+      <div 
+        *ngIf="image?.touched && image?.errors != null"
+        class="alert alert-danger"
+      > Image is required</div>
+      <br>
+      <div>
+        Image Preview : <img [src]="image?.value ?? null" alt="product image" height="100px">
+      </div>
+      <br>
+      
+      <!-- price -->
+      <div class="form-group">
+        <label for="price" class="mb-1">Price*</label>
+        <input formControlName="price" type="number" id="price" class="form-control" placeholder="Enter Price">
+      </div>
+      <div 
+        *ngIf="price?.touched && price?.errors != null"
+        class="alert alert-danger"
+      > Price is required </div>
+      <br>
+
+      <!-- quantity -->
+      <div class="form-group">
+        <label for="quantity" class="mb-1">Quantity*</label>
+        <input formControlName="quantity" type="number" id="quantity" class="form-control" placeholder="Enter Product quantity">
+      </div>
+      <div 
+        *ngIf="quantity?.touched && quantity?.errors != null"
+        class="alert alert-danger"
+      > Quantity is required </div>
+      <br>
     </div>
-    <br>
-    <div class="form-group">
-      <label for="image-url" class="mb-1">Image Url</label>
-      <input type="url" id="image-url" class="form-control" placeholder="Enter Image Url" [value]="product.image" (change)="product.image = imageUrlInput.value;" #imageUrlInput>
-    </div>
-    <br>
-    <div>
-      Image Preview : <img [src]="product.image" alt="product image" height="100px">
-    </div>
-  </div>
+  </form>
 </div>
 
 
 <!-- save or cancel changes -->
 <br><br>
-<div class="d-flex justify-content-end">
+<div class="d-flex justify-content-end" >
   <button 
+    *ngIf="id"
     class="me-3 btn btn-outline-primary" 
     (click)="onCancel()" 
     title="Undo local changes"
@@ -41,6 +86,8 @@
     class="me-3 btn btn-primary" 
     (click)="onSave()" 
   >
-    Save Changes
+    {{id ? 'Save Changes' : 'Add Product'}}
   </button>
 </div>
+
+

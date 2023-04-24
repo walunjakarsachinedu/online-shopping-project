@@ -21,7 +21,6 @@ import { Observable, catchError, of, throwError } from 'rxjs';
 export class CheckoutItemsComponent implements OnInit {
   products?: CartItem[];
   userId?: string;
-  doHaveCode = false;
   form: FormGroup;
 
   constructor(
@@ -35,7 +34,7 @@ export class CheckoutItemsComponent implements OnInit {
     fb: FormBuilder
   ) {
     this.form = fb.group({
-      email: ['', [Validators.required, MyValidators.email]],
+      email: [authService.userEmail ?? '', [Validators.required, MyValidators.email]],
       ccn: ['', [Validators.required, MyValidators.creditCard]],
       cvv: ['', [Validators.required, MyValidators.cvv]],
       exp_date: ['', MyValidators.exp_date], 
