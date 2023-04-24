@@ -56,6 +56,8 @@ import { OrderHistoryComponent } from './order-history/order-history.component';
     ToastrModule.forRoot({
       positionClass: 'toast-bottom-left',
       preventDuplicates: true,
+      closeButton: true,
+      progressBar: true,
     }),
     BrowserModule,
     HttpClientModule,

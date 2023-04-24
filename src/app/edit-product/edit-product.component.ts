@@ -5,6 +5,7 @@ import { ProductService } from '../common/services/product.service';
 import { ToastrService } from 'ngx-toastr';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MyValidators } from '../validators';
+import { Location } from '@angular/common';
 
 @Component({
   selector: 'app-edit-product',
@@ -19,6 +20,7 @@ export class EditProductComponent implements OnInit {
     private activatedRoute: ActivatedRoute,
     private toastr: ToastrService,
     private fb: FormBuilder,
+    public location: Location,
   ) {
     this.form = fb.group({
       name: fb.control('', [Validators.required]),
