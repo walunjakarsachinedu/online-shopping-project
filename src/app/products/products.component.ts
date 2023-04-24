@@ -33,7 +33,7 @@ export class ProductsComponent implements OnInit{
     this.productService.getAll().subscribe(products => {
       this.products = products;
     });
-    this.userId = this.authService.currentUser.id;
+    this.userId = this.authService.userId ?? '';
     this.cartService.getById(this.userId!).subscribe((cart: Cart) => {
       this.cart = cart;
     });

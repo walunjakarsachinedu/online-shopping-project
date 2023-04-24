@@ -11,16 +11,22 @@ import { DataService } from "./data.service";
   providedIn: "root"
 })
 export class AuthService{
-
   constructor(private router: Router, private activatedRoute: ActivatedRoute, private customerService: CustomerService, private http: HttpClient) {}
 
   login(credential: {email?: string | null, password?: string | null}): Observable<boolean> {
     let dataservice = new DataService("http://10.1.27.225:3000/login", this.http);
     return dataservice.post(credential)
-    .pipe(map((token) => {
-      localStorage.setItem("token", token.token);
-      return true;
-    })).pipe(catchError((error) => of(false)));
+    .pipe(map((token) => this.saveUserDetails(token)))
+    .pipe(catchError((error) => of(false)));
+  }
+
+  saveUserDetails(token: any) : boolean {
+    let user = new JwtHelperService().decodeToken(token.token);
+    localStorage.setItem("token", token.token);
+    localStorage.setItem("id", user.id);
+    localStorage.setItem("name", user.name);
+    localStorage.setItem("email", user.email);
+    return true;
   }
 
   createUser(customer: Customer) {
@@ -43,6 +49,18 @@ export class AuthService{
     let isExpired = helper.isTokenExpired(token);
     return !isExpired;
   }
+
+  get userId() {
+    return localStorage.getItem("id");
+  }
+
+  get userName() {
+    return localStorage.getItem("name");
+  }
+
+  get userEmail() {
+    return localStorage.getItem("email");
+  }
   
   get currentUser() {
     let token = localStorage.getItem("token");
@@ -50,3 +68,4 @@ export class AuthService{
     return new JwtHelperService().decodeToken(token);
   }
 }
+

@@ -32,7 +32,7 @@ export class ShoppingCartComponent implements OnInit {
 
   ngOnInit(): void {
     this.activatedRoute.paramMap.subscribe(v => {
-      this.customerId = this.authService.currentUser.id ?? undefined;  
+      this.customerId = this.authService.userId ?? '';  
       this.cartService.getById(this.customerId ?? '')
       .subscribe(carts => {
         if(!carts) return;

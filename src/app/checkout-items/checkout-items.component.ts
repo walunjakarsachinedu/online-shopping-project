@@ -43,7 +43,7 @@ export class CheckoutItemsComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.userId = this.authService.currentUser.id;
+    this.userId = this.authService.userId ?? '';
     this.cartService.getById(this.userId ?? '').subscribe(cart => {
       this.products = cart.products;
       this.products.forEach(cartItem => {
@@ -81,25 +81,25 @@ export class CheckoutItemsComponent implements OnInit {
       this.products
     );
 
-    this.orderService.getById(this.authService.currentUser.id)
+    this.orderService.getById(this.authService.userId ?? '')
     .pipe(catchError((error) => of(undefined)))
     .subscribe((history) => {
       let request: Observable<any>;
       if(history) {
-        request = this.orderService.patch(this.authService.currentUser.id, {
-          id: this.authService.currentUser.id,
+        request = this.orderService.patch(this.authService.userId ?? '', {
+          id: this.authService.userId,
           history: history
         });
       } else {
         request = this.orderService.post({
-          id: this.authService.currentUser.id,
+          id: this.authService.userId ?? '',
           history: [order]
         });
       }
       request
       .pipe(catchError(er => throwError(() => this.toastr.error('Order failed. Please try again later'))))
       .subscribe(() => {
-        this.cartService.deleteById(this.authService.currentUser.id).subscribe()
+        this.cartService.deleteById(this.authService.userId ?? '').subscribe()
         this.toastr.success('Order placed successfully !!!');
         this.router.navigate(['/products']);
       });
