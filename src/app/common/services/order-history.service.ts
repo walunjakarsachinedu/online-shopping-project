@@ -9,11 +9,11 @@ import { Order } from '../models/order';
 })
 export class OrderHistoryService extends DataService {
   constructor(http: HttpClient) { 
-    super("http://10.1.27.225:3000:3000/order-history", http);
+    super("http://10.1.27.225:3000/order-history", http);
   }
 
   getById(id: string) : Observable<Order[] | undefined> {
-    return this.http.get(this.url + "/" + id, this.headers).pipe(map((v: any) => v.history as (Order[] | undefined)))
+    return this.http.get(this.url + "/" + id, this.headers).pipe(map((v: any) => v.history as (Order[])))
   }
 
 }

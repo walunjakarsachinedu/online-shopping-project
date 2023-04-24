@@ -7,8 +7,8 @@ import { ProductService } from '../common/services/product.service';
 import { Location } from '@angular/common';
 import { CartItem } from '../common/models/cart-item';
 import { catchError, of } from 'rxjs';
-import { CheckoutService } from '../checkout.service';
 import { AuthService } from '../common/services/auth.service';
+import { CheckoutService } from '../common/services/checkout.service';
 
 @Component({
   selector: 'app-shopping-cart',

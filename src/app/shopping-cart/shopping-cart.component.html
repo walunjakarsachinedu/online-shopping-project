@@ -2,7 +2,7 @@
   <i class="bi bi-chevron-left"></i>
 </button>
 <br><br>
-<div *ngIf="cart?.products?.length != 0">
+<div *ngIf="cart && cart.products && cart.products.length != 0">
   <div class="container pb-2">
     Cart Summary
   </div>
@@ -53,7 +53,7 @@
     </div>
   </div>
 </div>
-<div *ngIf="cart?.products?.length == 0" class="d-flex flex-column align-items-center">
+<div *ngIf="!cart || !cart.products || cart.products.length == 0" class="d-flex flex-column align-items-center">
   <h4>Empty Shopping Cart</h4> 
   You haven't selected any items to add to your shopping cart yet.
   <img src="https://media.istockphoto.com/id/861576608/vector/empty-shopping-bag-icon-online-business-vector-icon-template.jpg?s=612x612&w=0&k=20&c=I7MbHHcjhRH4Dy0NVpf4ZN4gn8FVDnwn99YdRW2x5k0=" alt="empty shopping cart" height="400px">

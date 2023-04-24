@@ -20,8 +20,7 @@ export class OrderHistoryComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    let customerId = this.authService.currentUser.id;
-    this.orderHistory.getById(customerId).subscribe(history => {
+    this.orderHistory.getById(this.authService.currentUser.id).subscribe(history => {
       this.history = history;
       this.history?.forEach(
         order => order.products.forEach(
