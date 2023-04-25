@@ -3,7 +3,7 @@ import { catchError, map, Observable, throwError } from 'rxjs';
 import { AppError } from '../exceptions/app-error';
 import { NotFoundError } from '../exceptions/not-found-error';
 import { BadRequestError } from '../exceptions/bad-request-error';
-import { Injectable } from '@angular/core';
+import { EventEmitter, Injectable } from '@angular/core';
 import { InvalidCredentials } from '../exceptions/invalid-credentials';
 
 export class DataService {

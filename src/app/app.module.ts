@@ -31,6 +31,7 @@ import { ShoppingCartService } from './common/services/shopping-cart.service';
 import { CheckoutItemsComponent } from './checkout-items/checkout-items.component';
 import { OrderHistoryComponent } from './order-history/order-history.component';
 import { NavbarComponent } from './navbar/navbar.component';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 @NgModule({
   declarations: [
@@ -54,6 +55,7 @@ import { NavbarComponent } from './navbar/navbar.component';
     NavbarComponent,
   ],
   imports: [
+    NgbModule,
     BrowserAnimationsModule,
     ToastrModule.forRoot({
       positionClass: 'toast-bottom-left',
