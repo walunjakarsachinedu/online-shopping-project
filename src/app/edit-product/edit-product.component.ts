@@ -21,6 +21,7 @@ export class EditProductComponent implements OnInit {
     private toastr: ToastrService,
     private fb: FormBuilder,
     public location: Location,
+    private router: Router,
   ) {
     this.form = fb.group({
       name: fb.control('', [Validators.required]),
@@ -68,6 +69,10 @@ export class EditProductComponent implements OnInit {
     return this.form.get('quantity');
   }
 
+  get isFormValid() {
+    return this.name!.errors || this.description!.errors || this.image!.errors || this.price!.errors || this.quantity!.errors;
+  }
+
   onCancel() {
     if(this.id) this.form.setValue({...this.originalProduct});
   }
@@ -77,6 +82,7 @@ export class EditProductComponent implements OnInit {
     if(this.id) this.originalProduct = product;
     if(this.id) this.productService.patch(this.id, product).subscribe((v) => this.toastr.success("Product details changed successfully!"));
     else this.productService.post(product).subscribe((v) => this.toastr.success("Product added successfully!"));
+    this.router.navigate(["/manage-products"]);    
   }
 }
 

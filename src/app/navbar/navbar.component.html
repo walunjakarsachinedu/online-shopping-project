@@ -1,0 +1,28 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <a class="navbar-brand ps-2" href="#">Shopping App</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse justify-content-between" id="navbarNav" *ngIf="authService.isLogin()">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item">
+        <a class="nav-link" routerLink="/products">Products</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" routerLink="/shopping-cart">Cart(3)</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" routerLink="/order-history">Order History</a>
+      </li>
+      <li class="nav-item" *ngIf="authService.currentUser.role == 'admin'">
+        <a class="nav-link" routerLink="/admin-home">Admin Setting</a>
+      </li>
+    </ul>
+    <ul class="navbar-nav pe-2">
+      <li class="nav-item">
+        <a class="nav-link" (click)="authService.logout()" routerLink="/signin">Logout</a>
+      </li>
+    </ul>
+  </div>
+</nav>
+

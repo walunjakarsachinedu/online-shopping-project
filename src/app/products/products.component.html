@@ -1,29 +1,17 @@
 <!-- heading -->
-<div class="m-2 d-flex justify-content-between">
-  <h4>Welcome {{authService.userName}}</h4> 
-  <div>
-    <button class="me-2 btn btn-primary" routerLink="/order-history">
-      Order History
-    </button>
-    <button class="me-2 btn btn-primary" routerLink="/shopping-cart">
-      Cart ({{ cart?.products?.length ?? 0 }})
-    </button>
-    <button *ngIf="authService.currentUser.role=='admin'" (click)="router.navigate(['/admin-home'])"
-      class="me-2 btn btn-primary">Admin Setting
-    </button>
-    <button (click)="authService.logout()" class="btn btn-primary">logout</button>
-  </div>
+<div class="m-3">
+  <h5>Welcome {{authService.userName}}</h5> 
 </div>
-
+<br><br>
 <!-- search bar -->
-<div class="m-5" width=>
+<div class="mx-5 mb-5" width=>
   <input type="text" class="form-control" placeholder="Search" (input)="onChange($event)" autofocus>
 </div>
 <br>
 
 <!-- product list -->
 <div class="m-5 row justify-content-center">
-  <div *ngFor="let product of products" class="m-5 border-0 text-center col-lg-2 col-md-3 col-sm-6 col-12">
+  <div *ngFor="let product of products" class="m-5 border-0 text-center col-lg-2 col-md-4 col-sm-6 col-12">
     <product-preview [product]="product" (onAddToCart)="addProductToCard($event)"></product-preview>
   </div>
 </div>

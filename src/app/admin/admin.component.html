@@ -1,10 +1,22 @@
-<div class="m-2 d-flex justify-content-between">
-  <a href="/" class="btn btn-primary bi bi-arrow-left"></a>
-  <button (click)="authService.logout()" class="btn btn-primary">logout</button>
-</div>
-<div class="h1 d-flex justify-content-center">Admin Settings</div>
-<div class="my-5 d-flex flex-column align-items-center">
-  <h4><a routerLink="/products">view products</a></h4>
-  <h4><a routerLink="/manage/products">manage products</a></h4>
-  <!-- <h4><a routerLink="/users">manage users</a></h4> -->
+<div class="mt-4 container d-flex flex-column align-items-center">
+  <h4>Admin Settings</h4>
+  <p>Welcome to the admin settings page. Here you can manage your products.</p>
+  <div class="d-flex">
+    <div class="card shadow ms-0 m-4 p-2 pointer" style="height:100px; width: 180px;" routerLink="/create/product">
+      <div class="d-flex flex-column">
+        <h6>Add Product</h6>
+        <small>
+          Click to create new product.
+        </small>
+      </div>
+    </div>
+    <div class="card shadow m-4 p-2 pointer" style="height:100px; width: 180px;" routerLink="/manage/products">
+      <div class="d-flex flex-column">
+        <h6>Manage Products</h6>
+        <small>
+          Click to manage product quantity.
+        </small>
+      </div>
+    </div>
+  </div>
 </div>
