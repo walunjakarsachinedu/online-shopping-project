@@ -17,7 +17,7 @@ export class ShoppingCartService extends DataService {
   }
 
   public deleteById(userId: string) {
-    return this.http.delete(this.url + "/" + userId, this.headers); 
+    return this.http.delete(this.url + "/" + userId, this.headers).pipe(map(this.emitChange)); 
   }
 }
 

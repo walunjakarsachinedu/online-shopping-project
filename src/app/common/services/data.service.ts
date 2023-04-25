@@ -9,6 +9,7 @@ import { InvalidCredentials } from '../exceptions/invalid-credentials';
 export class DataService {
   constructor(public url: string, public http: HttpClient) { }
 
+  changeNotifier = new EventEmitter<any>(true);
   headers = { headers: {"authorization": "Bearer " + localStorage.getItem("token")} };
 
   getAll(): Observable<any> {
@@ -24,18 +25,26 @@ export class DataService {
   post(payload: any) {
     return this.http.post(this.url, payload, this.headers)
       .pipe(map(res => JSON.parse(JSON.stringify(res))))
+      .pipe(map(this.emitChange)
+      //   map(res => {
+      //   this.changeNotifier.emit(res);
+      //   return res;
+      // })
+      )
       .pipe(catchError(this.handleError))
   }
 
   patch(id: string, payload: any) {
     return this.http.patch(this.url + "/" + id, payload, this.headers)
       .pipe(map(res => JSON.parse(JSON.stringify(res))))
+      .pipe(map(this.emitChange))
       .pipe(catchError(this.handleError))
   }
 
   delete(id: string) {
     return this.http.delete(this.url + "/" + id, this.headers)
       .pipe(map(res => JSON.parse(JSON.stringify(res))))
+      .pipe(map(this.emitChange))
       .pipe(catchError(this.handleError))
   }
 
@@ -44,5 +53,10 @@ export class DataService {
     if(error.status == 401) return throwError(() => new InvalidCredentials(error));
     if(error.status == 404) return throwError(() => new NotFoundError(error));
     return throwError(() => new AppError(error))
+  }
+  
+  emitChange(res: any) {
+    this.changeNotifier.emit(true);
+    return res;
   }
 }
