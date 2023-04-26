@@ -10,8 +10,8 @@
 <br>
 
 <!-- product list -->
-<div class="m-5 row justify-content-center">
-  <div *ngFor="let product of products" class="m-5 border-0 text-center col-lg-2 col-md-4 col-sm-6 col-12">
+<div class="m-5 row justify-content-md-between justify-content-center">
+  <div *ngFor="let product of products" class="m-5 border-0 text-center col-lg-2 col-md-4 col-sm-6">
     <product-preview [product]="product" (onAddToCart)="addProductToCard($event)"></product-preview>
   </div>
 </div>
