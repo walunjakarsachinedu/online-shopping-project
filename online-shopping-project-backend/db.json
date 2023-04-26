@@ -80,7 +80,7 @@
       "description": "Apple M2 chip Laptop with 8-core CPU, 10-core GPU and 16-core Neural Engine\n8GB unified memory\n256GB SSD storage\n33.02 cm (13-inch) Retina display with True Tone\nTwo Thunderbolt / USB 4 ports\nTouch Bar and Touch ID\nBacklit Magic Keyboard - US English\nForce Touch trackpad",
       "image": "https://store.storeimages.cdn-apple.com/4668/as-images.apple.com/is/mbp-spacegray-select-202206?wid=640&hei=595&fmt=jpeg&qlt=95&.v=1664497359481",
       "price": 84990,
-      "quantity": 20
+      "quantity": 18
     },
     {
       "id": 3,
@@ -140,7 +140,7 @@
     },
     {
       "id": 10,
-      "name": "32L Convection Microwave Oven, MC32K7056CC",
+      "name": "32L Convection Microwave Oven, MC32K7056CCC ----------------------------------------------------------",
       "description": "Fruit Dry\nMasala, Tadka & Sun Dry™\nHotBlast™\nCeramic Enamel Cavity with 10 year Warranty\nSlimFry™",
       "image": "https://images.samsung.com/is/image/samsung/in-32-litre-convection-microwave-oven-mc32k7056cc-mc32k7056cc-tl-frontblack-184429900?$650_519_PNG$",
       "price": 23500,
@@ -174,12 +174,7 @@
   "cart": [
     {
       "id": 1,
-      "products": [
-        {
-          "id": 3,
-          "quantity": 1
-        }
-      ]
+      "products": []
     },
     {
       "id": 3,

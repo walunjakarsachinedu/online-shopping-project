@@ -80,7 +80,9 @@ export class ShoppingCartComponent implements OnInit {
   public deleteProductFromCart(cartItem: CartItem) {
    let index = this.cart?.products.indexOf(cartItem); 
    this.cart?.products.splice(index!, 1);
-    this.cartService.patch(this.cart?.id ?? "", this.cartWithoutProductDetails).subscribe();
+    this.cartService.patch(this.cart?.id ?? "", this.cartWithoutProductDetails).subscribe(() => {
+      if(this.cart) this.cartService.updateCartCount(this.cart.products.length)
+    });
   }
 
   public checkoutItem() {

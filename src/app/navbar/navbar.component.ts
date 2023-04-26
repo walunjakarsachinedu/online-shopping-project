@@ -16,13 +16,7 @@ export class NavbarComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    this.setCardItemCount();
-    this.cartService.changeNotifier.subscribe(cart => this.setCardItemCount());
+    this.cartService.cartProductCount.subscribe(count => this.cartItemCount = count);
   }
 
-  setCardItemCount() {
-    this.cartService.getById(this.authService.userId ?? '').subscribe(cart => {
-      this.cartItemCount = cart.products.length;
-    });
-  }
 }

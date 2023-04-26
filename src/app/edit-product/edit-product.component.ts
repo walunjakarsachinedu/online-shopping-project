@@ -82,7 +82,7 @@ export class EditProductComponent implements OnInit {
     if(this.id) this.originalProduct = product;
     if(this.id) this.productService.patch(this.id, product).subscribe((v) => this.toastr.success("Product details changed successfully!"));
     else this.productService.post(product).subscribe((v) => this.toastr.success("Product added successfully!"));
-    this.router.navigate(["/manage-products"]);    
+    this.location.back();
   }
 }
 
