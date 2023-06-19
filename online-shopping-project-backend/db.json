@@ -71,6 +71,14 @@
       "password": "Passw0rd",
       "address": "pune",
       "role": "user"
+    },
+    {
+      "id": "1683696262026",
+      "name": "amir khan",
+      "email": "amirkhan@gmail.com",
+      "password": "Passw0rd",
+      "address": "dummy address of amir khan",
+      "role": "user"
     }
   ],
   "products": [
@@ -80,7 +88,7 @@
       "description": "Apple M2 chip Laptop with 8-core CPU, 10-core GPU and 16-core Neural Engine\n8GB unified memory\n256GB SSD storage\n33.02 cm (13-inch) Retina display with True Tone\nTwo Thunderbolt / USB 4 ports\nTouch Bar and Touch ID\nBacklit Magic Keyboard - US English\nForce Touch trackpad",
       "image": "https://store.storeimages.cdn-apple.com/4668/as-images.apple.com/is/mbp-spacegray-select-202206?wid=640&hei=595&fmt=jpeg&qlt=95&.v=1664497359481",
       "price": 84990,
-      "quantity": 18
+      "quantity": 10
     },
     {
       "id": 3,
@@ -112,7 +120,7 @@
       "description": "Full-screen 6.7-inch (170 mm)2 display\n19.5:9 aspect ratio\nQHD+ (1440 x 3120) LTPO OLED at 512 PPI\nSmooth Display (up to 120 Hz)3",
       "image": "https://lh3.googleusercontent.com/yi1Wo0LT1FC633ahHo7hEs63FHaoWpRlw4BmGkrQQOcztemUMGRwdHITgEDpE_JSZR2ZpH5R1u4F-z8irTV3JTiHJvGz1kWhhkg=rw-e365-w2880",
       "price": 68800,
-      "quantity": 19
+      "quantity": 23
     },
     {
       "id": 7,
@@ -132,7 +140,7 @@
     },
     {
       "id": 9,
-      "name": "68.4cm Curved Monitor",
+      "name": "68.4cm Curved Monitor ",
       "description": "Comfortable and Immersive viewing experience with curved screen\nIncredibly slim and stylish design with bezel-less screen\nSmooth game play with AMD Freesync and Game mode",
       "image": "https://images.samsung.com/is/image/samsung/p6pim/in/lc27r500fhwxxl/gallery/in-c27r5-lc27r500fhwxxl-401472876?$650_519_PNG$",
       "price": 1869,
@@ -140,7 +148,7 @@
     },
     {
       "id": 10,
-      "name": "32L Convection Microwave Oven, MC32K7056CCC ----------------------------------------------------------",
+      "name": "32L Convection Microwave Oven, MC32K7056CCC ",
       "description": "Fruit Dry\nMasala, Tadka & Sun Dry™\nHotBlast™\nCeramic Enamel Cavity with 10 year Warranty\nSlimFry™",
       "image": "https://images.samsung.com/is/image/samsung/in-32-litre-convection-microwave-oven-mc32k7056cc-mc32k7056cc-tl-frontblack-184429900?$650_519_PNG$",
       "price": 23500,
@@ -148,11 +156,11 @@
     },
     {
       "id": 11,
-      "name": "OnePlus USB 3.0 to Type-C OTG Cable Adapter",
+      "name": "OnePlus USB 3.0 to Type-C OTG Cable Adapter ",
       "description": "New OnePlus USB 3.0 to Type-C OTG Cable Adapter Compatible with USB to c Type Converter Supporting All laptops, Mobile Smartphone and Other Type c Devices (White & Red)",
       "image": "https://m.media-amazon.com/images/I/412FI6mFh2L._SY450_.jpg",
       "price": 1499,
-      "quantity": 20
+      "quantity": 23
     },
     {
       "id": 14,
@@ -172,10 +180,6 @@
     }
   ],
   "cart": [
-    {
-      "id": 1,
-      "products": []
-    },
     {
       "id": 3,
       "products": []
@@ -202,6 +206,23 @@
       "products": [
         {
           "id": 1,
+          "quantity": 1
+        }
+      ]
+    },
+    {
+      "id": 1,
+      "products": [
+        {
+          "id": 3,
+          "quantity": 0
+        },
+        {
+          "id": 1,
+          "quantity": 1
+        },
+        {
+          "id": 15,
           "quantity": 1
         }
       ]
@@ -264,6 +285,16 @@
             {
               "id": 1,
               "quantity": 1
+            }
+          ]
+        },
+        {
+          "id": "2023-04-22T07:32:17.833Z",
+          "date": "2023-04-22T07:32:17.833Z",
+          "products": [
+            {
+              "id": 1,
+              "quantity": 121
             }
           ]
         }

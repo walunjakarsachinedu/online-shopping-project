@@ -8,8 +8,10 @@
   <div height="200px" width="200px" class="">
     <img [src]="product.image" height=200px alt="ear buds">
   </div>
-  <div> <h2>{{product.name}}</h2> </div>
-  <div> {{product.description}} </div>
+  <div> <h2>{{product.name}} &nbsp; {{"(₹ " + product.price.toLocaleString() + ")"}}</h2> </div>
+  <div> {{product.description}}</div>
+  <br>
+  <div class="btn btn-outline-primary rounded-5" (click)="addProductToCard(product.id)">Add to Cart</div>
 </div>
 
 
