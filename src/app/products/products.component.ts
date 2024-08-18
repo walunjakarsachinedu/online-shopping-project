@@ -60,7 +60,10 @@ export class ProductsComponent implements OnInit{
     }
     request
     .pipe(catchError(e => throwError(() => this.toastr.error("Failed to add product to cart. Please try again later"))))
-    .subscribe(() => this.toastr.success("Product successfully added to shopping cart"));
+    .subscribe(() => {
+      this.cartService.updateCartCount(this.cart!.products.length);
+      this.toastr.success("Product successfully added to shopping cart");
+    });
   }
 }
   
