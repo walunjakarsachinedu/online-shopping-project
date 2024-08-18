@@ -3,13 +3,14 @@ import { Injectable } from "@angular/core";
 import { map, Observable, ObservedValueOf } from "rxjs";
 import { Cart } from "../models/cart";
 import { DataService } from "./data.service";
+import { environment } from "src/environments/environment";
 
 @Injectable({
   providedIn: 'root'
 })
 export class ShoppingCartService extends DataService {
   constructor(http: HttpClient) { 
-    super("http://10.1.27.225:3000/cart", http);
+    super(environment.apiUrl + "/cart", http);
   }
 
   public getById(userId: string) : Observable<Cart> {

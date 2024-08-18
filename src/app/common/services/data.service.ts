@@ -25,7 +25,7 @@ export class DataService {
   post(payload: any) {
     return this.http.post(this.url, payload, this.headers)
       .pipe(map(res => JSON.parse(JSON.stringify(res))))
-      .pipe(map(this.emitChange)
+      .pipe(map(this.emitChange.bind(this))
       //   map(res => {
       //   this.changeNotifier.emit(res);
       //   return res;
@@ -37,14 +37,14 @@ export class DataService {
   patch(id: string, payload: any) {
     return this.http.patch(this.url + "/" + id, payload, this.headers)
       .pipe(map(res => JSON.parse(JSON.stringify(res))))
-      .pipe(map(this.emitChange))
+      .pipe(map(this.emitChange.bind(this)))
       .pipe(catchError(this.handleError))
   }
 
   delete(id: string) {
     return this.http.delete(this.url + "/" + id, this.headers)
       .pipe(map(res => JSON.parse(JSON.stringify(res))))
-      .pipe(map(this.emitChange))
+      .pipe(map(this.emitChange.bind(this)))
       .pipe(catchError(this.handleError))
   }
 

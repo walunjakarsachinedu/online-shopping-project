@@ -3,13 +3,14 @@ import { Injectable } from "@angular/core";
 import { map, Observable, switchMap } from "rxjs";
 import { Customer } from "../models/customer";
 import { DataService } from "./data.service";
+import { environment } from "src/environments/environment";
 
 @Injectable({
   providedIn: "root"
 })
 export class CustomerService extends DataService { 
   constructor(http: HttpClient) { 
-    super("http://10.1.27.225:3000/customers", http);
+    super(environment.apiUrl + "/customers", http);
   }
 
   public getCustomerByEmail(email: string): Observable<Customer[]> {

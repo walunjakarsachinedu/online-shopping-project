@@ -3,13 +3,14 @@ import { Injectable } from "@angular/core";
 import { map, Observable } from "rxjs";
 import { Product } from "../models/product";
 import { DataService } from "./data.service";
+import { environment } from "src/environments/environment";
 
 @Injectable({
   providedIn: "root"
 })
 export class ProductService extends DataService { 
   constructor(http: HttpClient) { 
-    super("http://10.1.27.225:3000/products", http);
+    super(environment.apiUrl + "/products", http);
   }
 
   getById(id: string): Observable<Product[]> {

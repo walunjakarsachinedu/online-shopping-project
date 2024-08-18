@@ -20,5 +20,6 @@ server.use(authenticatedUser);
 server.use(router);
 
 server.listen(3000, () => {
+  console.log("\x1b[32m%s\x1b[0m", "listening on http://localhost:3000\n");
   console.log('JSON Server is running');
 });

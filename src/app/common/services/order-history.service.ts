@@ -3,13 +3,14 @@ import { DataService } from './data.service';
 import { HttpClient } from '@angular/common/http';
 import { Observable, map } from 'rxjs';
 import { Order } from '../models/order';
+import { environment } from 'src/environments/environment';
 
 @Injectable({
   providedIn: 'root'
 })
 export class OrderHistoryService extends DataService {
   constructor(http: HttpClient) { 
-    super("http://10.1.27.225:3000/order-history", http);
+    super(environment.apiUrl + "/order-history", http);
   }
 
   getById(id: string) : Observable<Order[] | undefined> {
